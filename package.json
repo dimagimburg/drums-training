@@ -5,6 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "validate": "node tools/validate-content.js",
+    "prebuild": "node tools/validate-content.js",
     "build": "tsc -b && vite build",
     "preview": "vite preview"
   },

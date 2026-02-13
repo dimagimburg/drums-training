@@ -2,7 +2,7 @@
 // Config per research.md R3: weighted keys, threshold 0.4, includeMatches.
 
 import { useState, useMemo } from 'react';
-import Fuse from 'fuse.js';
+import Fuse, { type IFuseOptions } from 'fuse.js';
 import type { Lesson } from '../types';
 
 /** Maximum characters allowed in search query (edge case: very long queries) */
@@ -23,7 +23,7 @@ export interface SearchResult {
   score: number;
 }
 
-const FUSE_OPTIONS: Fuse.IFuseOptions<Lesson> = {
+const FUSE_OPTIONS: IFuseOptions<Lesson> = {
   keys: [
     { name: 'title', weight: 2.0 },
     { name: 'description', weight: 1.0 },
@@ -74,7 +74,7 @@ export function getMatchSnippet(matches: SearchMatch[]): string | null {
   // Prefer title match, then description, then links.title
   const preferred = matches.find((m) => m.key === 'title')
     ?? matches.find((m) => m.key === 'description')
-    ?? matches[0];
+    ?? matches[0]!;
 
   const label =
     preferred.key === 'title' ? 'title'

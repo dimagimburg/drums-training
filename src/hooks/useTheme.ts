@@ -43,7 +43,7 @@ export function useTheme() {
   const cycleTheme = useCallback(() => {
     const currentIndex = THEMES.indexOf(theme);
     const nextIndex = (currentIndex + 1) % THEMES.length;
-    setTheme(THEMES[nextIndex]);
+    setTheme(THEMES[nextIndex] ?? DEFAULT_THEME);
   }, [theme, setTheme]);
 
   return {

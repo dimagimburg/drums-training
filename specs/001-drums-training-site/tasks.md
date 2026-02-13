@@ -132,10 +132,10 @@
 
 ### Implementation for User Story 4
 
-- [ ] T036 [P] [US4] Create content validation script in `tools/validate-content.js` (uses js-yaml + ajv to validate: YAML syntax, required fields per lesson type via lesson-schema.json, exercise schema via training-schema.json, lesson reference integrity — FR-054, per research.md R9)
-- [ ] T037 [P] [US4] Create Cursor rule for LLM-assisted content editing in `.cursor/rules/content-management.mdc` (schema context, file locations, validation rules, example entries — FR-052)
-- [ ] T038 [US4] Add npm scripts to `package.json`: `validate` (runs validate-content.js), `prebuild` (runs validate before build), update `build` script — per research.md R2, quickstart.md
-- [ ] T039 [US4] Add inline comments to `content/lessons.yaml` and `content/training.yaml` explaining each field and acceptable values (FR-053)
+- [x] T036 [P] [US4] Create content validation script in `tools/validate-content.js` (uses js-yaml + ajv to validate: YAML syntax, required fields per lesson type via lesson-schema.json, exercise schema via training-schema.json, lesson reference integrity — FR-054, per research.md R9)
+- [x] T037 [P] [US4] Create Cursor rule for LLM-assisted content editing in `.cursor/rules/content-management.mdc` (schema context, file locations, validation rules, example entries — FR-052)
+- [x] T038 [US4] Add npm scripts to `package.json`: `validate` (runs validate-content.js), `prebuild` (runs validate before build), update `build` script — per research.md R2, quickstart.md
+- [x] T039 [US4] Add inline comments to `content/lessons.yaml` and `content/training.yaml` explaining each field and acceptable values (FR-053)
 
 **Checkpoint**: Content management workflow complete — parent can add/edit content with validation safety net.
 
