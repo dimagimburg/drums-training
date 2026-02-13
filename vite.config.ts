@@ -6,5 +6,5 @@ import yaml from '@modyfi/vite-plugin-yaml';
 export default defineConfig({
   plugins: [react(), yaml()],
   // Base path for GitHub Pages deployment (repo name)
-  base: '/jonathan-drums/',
+  base: '/drums-training/',
 });
