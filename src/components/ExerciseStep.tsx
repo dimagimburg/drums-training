@@ -45,6 +45,23 @@ export default function ExerciseStep({
     onComplete(selectedLesson.id);
   }, [selectedLesson, onComplete]);
 
+  const isFirstExercise = stepNumber === 1;
+
+  // "Start over" behaviour depends on context:
+  // - Exercise 1 with a lesson selected → clear selection (back to picker)
+  // - Exercise 2+ → full session reset
+  // - Exercise 1 with no selection → hidden (nothing to reset)
+  const handleStartOver = useCallback(() => {
+    if (isFirstExercise) {
+      setSelectedLesson(null);
+      doneRef.current = false;
+    } else {
+      onReset();
+    }
+  }, [isFirstExercise, onReset]);
+
+  const showStartOver = !isFirstExercise || selectedLesson !== null;
+
   // Shared wizard navigation bar
   const wizardNav = (
     <div className="exercise-step__nav">
@@ -66,9 +83,13 @@ export default function ExerciseStep({
           />
         </div>
       </div>
-      <button className="exercise-step__restart" onClick={onReset}>
-        Start over
-      </button>
+      {showStartOver ? (
+        <button className="exercise-step__restart" onClick={handleStartOver}>
+          <span aria-hidden="true">↺</span> Start over
+        </button>
+      ) : (
+        <span />
+      )}
     </div>
   );
 
