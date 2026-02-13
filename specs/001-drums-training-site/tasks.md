@@ -61,15 +61,15 @@
 
 ### Implementation for User Story 1
 
-- [ ] T017 [P] [US1] Generate 100 kid-friendly motivational messages in `src/data/motivational-messages.json` per messages-schema.json
-- [ ] T018 [P] [US1] Create EmptyState component in `src/components/EmptyState.tsx` (friendly messages for empty training config, empty library, errors — FR-005)
-- [ ] T019 [P] [US1] Create YouTubeEmbed component in `src/components/YouTubeEmbed.tsx` (responsive 16:9 iframe using youtube-nocookie.com, "Open on YouTube" fallback link — per research.md R7, FR-033)
-- [ ] T020 [US1] Create LessonDetail component in `src/components/LessonDetail.tsx` (title, description, difficulty badge, YouTube embed for songs, links list — FR-015, FR-033, FR-034, FR-035, FR-060, FR-061). This component is shared with Library (US2).
-- [ ] T021 [US1] Implement useTrainingSession hook in `src/hooks/useTrainingSession.ts` (exercise flow state machine, lesson selection tracking, deduplication logic with override when no fresh options, sessionStorage persistence — FR-014, FR-019, FR-020)
-- [ ] T022 [US1] Create ExerciseStep component in `src/components/ExerciseStep.tsx` (exercise title, description, lesson list with large tap targets, "Pick for me" random button, "Done" button with debounce — FR-010 through FR-016)
-- [ ] T023 [US1] Create CompletionScreen component in `src/components/CompletionScreen.tsx` (random motivational message from pool, celebratory visual treatment, "Start Again" button — FR-017, FR-020)
-- [ ] T024 [US1] Create Training container component in `src/components/Training.tsx` (orchestrates ExerciseStep flow, displays CompletionScreen on finish, shows EmptyState if no exercises configured — FR-010)
-- [ ] T025 [US1] Wire Training route end-to-end: integrate with App.tsx routing, handle edge cases (all lessons used, single lesson in list, empty config, broken references — spec Edge Cases section)
+- [x] T017 [P] [US1] Generate 100 kid-friendly motivational messages in `src/data/motivational-messages.json` per messages-schema.json
+- [x] T018 [P] [US1] Create EmptyState component in `src/components/EmptyState.tsx` (friendly messages for empty training config, empty library, errors — FR-005)
+- [x] T019 [P] [US1] Create YouTubeEmbed component in `src/components/YouTubeEmbed.tsx` (responsive 16:9 iframe using youtube-nocookie.com, "Open on YouTube" fallback link — per research.md R7, FR-033)
+- [x] T020 [US1] Create LessonDetail component in `src/components/LessonDetail.tsx` (title, description, difficulty badge, YouTube embed for songs, links list — FR-015, FR-033, FR-034, FR-035, FR-060, FR-061). This component is shared with Library (US2).
+- [x] T021 [US1] Implement useTrainingSession hook in `src/hooks/useTrainingSession.ts` (exercise flow state machine, lesson selection tracking, deduplication logic with override when no fresh options, sessionStorage persistence — FR-014, FR-019, FR-020)
+- [x] T022 [US1] Create ExerciseStep component in `src/components/ExerciseStep.tsx` (exercise title, description, lesson list with large tap targets, "Pick for me" random button, "Done" button with debounce — FR-010 through FR-016)
+- [x] T023 [US1] Create CompletionScreen component in `src/components/CompletionScreen.tsx` (random motivational message from pool, celebratory visual treatment, "Start Again" button — FR-017, FR-020)
+- [x] T024 [US1] Create Training container component in `src/components/Training.tsx` (orchestrates ExerciseStep flow, displays CompletionScreen on finish, shows EmptyState if no exercises configured — FR-010)
+- [x] T025 [US1] Wire Training route end-to-end: integrate with App.tsx routing, handle edge cases (all lessons used, single lesson in list, empty config, broken references — spec Edge Cases section)
 
 **Checkpoint**: User Story 1 fully functional — kid can complete entire training routine. Core MVP is deliverable.
 
