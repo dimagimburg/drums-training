@@ -9,15 +9,17 @@
     <script>
       // Prevent flash of wrong theme — apply saved theme before React mounts
       (function () {
+        var VALID_THEMES = ['ocean', 'sunset'];
+        var DEFAULT = 'ocean';
         try {
           var theme = localStorage.getItem('jonathan-drums-theme');
-          if (theme) {
+          if (theme && VALID_THEMES.indexOf(theme) !== -1) {
             document.documentElement.setAttribute('data-theme', theme);
           } else {
-            document.documentElement.setAttribute('data-theme', 'ocean');
+            document.documentElement.setAttribute('data-theme', DEFAULT);
           }
         } catch (e) {
-          document.documentElement.setAttribute('data-theme', 'ocean');
+          document.documentElement.setAttribute('data-theme', DEFAULT);
         }
       })();
     </script>

@@ -46,6 +46,7 @@ export default function Training() {
         totalSteps={totalExercises}
         onComplete={selectLessonAndAdvance}
         onGoBack={canGoBack ? goBack : undefined}
+        onReset={reset}
         pickRandom={pickRandom}
       />
     );

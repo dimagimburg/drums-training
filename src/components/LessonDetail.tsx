@@ -91,13 +91,13 @@ export default function LessonDetail({ lesson: propLesson, inline }: LessonDetai
         </div>
       )}
 
-      {/* Back button for standalone (routed) mode */}
+      {/* Back button for standalone (routed) mode — navigates to library, not history */}
       {!inline && (
         <button
           className="lesson-detail__back"
-          onClick={() => navigate(-1)}
+          onClick={() => navigate('/library')}
         >
-          ← Go Back
+          ← Back to Library
         </button>
       )}
     </article>

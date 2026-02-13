@@ -51,10 +51,10 @@
   color: var(--color-text-secondary);
   padding: 0.25rem;
   border-radius: 50%;
-  height: 32px;
-  width: 32px;
-  min-height: unset;
-  min-width: unset;
+  height: 48px;
+  width: 48px;
+  min-height: 48px; /* FR-002: minimum 48px touch target */
+  min-width: 48px;
   display: flex;
   align-items: center;
   justify-content: center;

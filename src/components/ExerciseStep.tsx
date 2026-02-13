@@ -1,6 +1,7 @@
 import { useState, useCallback, useRef } from 'react';
 import type { Lesson, ResolvedExercise } from '../types';
 import LessonDetail from './LessonDetail';
+import EmptyState from './EmptyState';
 import './ExerciseStep.css';
 
 interface ExerciseStepProps {
@@ -10,6 +11,7 @@ interface ExerciseStepProps {
   totalSteps: number;
   onComplete: (lessonId: string) => void;
   onGoBack?: () => void;
+  onReset: () => void;
   pickRandom: () => Lesson | null;
 }
 
@@ -20,6 +22,7 @@ export default function ExerciseStep({
   totalSteps,
   onComplete,
   onGoBack,
+  onReset,
   pickRandom,
 }: ExerciseStepProps) {
   const [selectedLesson, setSelectedLesson] = useState<Lesson | null>(null);
@@ -63,8 +66,9 @@ export default function ExerciseStep({
           />
         </div>
       </div>
-      {/* Spacer to balance the layout */}
-      <span />
+      <button className="exercise-step__restart" onClick={onReset}>
+        Start over
+      </button>
     </div>
   );
 
@@ -91,6 +95,21 @@ export default function ExerciseStep({
             Done! Next exercise →
           </button>
         </div>
+      </div>
+    );
+  }
+
+  // --- Edge case: no lessons available (all broken refs) ---
+  if (availableLessons.length === 0) {
+    return (
+      <div className="exercise-step">
+        {wizardNav}
+        <h2 className="exercise-step__title">{exercise.title}</h2>
+        <EmptyState
+          icon="⚠️"
+          title="No lessons available"
+          message="This exercise has no valid lessons. Ask your parent to check the training config."
+        />
       </div>
     );
   }

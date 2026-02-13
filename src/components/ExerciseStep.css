@@ -30,6 +30,22 @@
   background-color: var(--color-primary-light);
 }
 
+.exercise-step__restart {
+  background: none;
+  color: var(--color-text-secondary);
+  font-size: 0.85rem;
+  font-weight: 500;
+  padding: 0.4rem 0.6rem;
+  border-radius: 8px;
+  white-space: nowrap;
+  min-height: 48px; /* FR-002: touch target */
+}
+
+.exercise-step__restart:hover {
+  background-color: var(--color-primary-light);
+  color: var(--color-primary);
+}
+
 .exercise-step__progress {
   display: flex;
   flex-direction: column;

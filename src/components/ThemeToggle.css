@@ -5,10 +5,10 @@
   font-size: 1.4rem;
   padding: 0;
   border-radius: 8px;
-  height: 40px;
-  width: 40px;
-  min-height: unset; /* Override global 48px — fits in fixed header height */
-  min-width: unset;
+  height: 48px;
+  width: 48px;
+  min-height: 48px; /* FR-002: minimum 48px touch target */
+  min-width: 48px;
   display: flex;
   align-items: center;
   justify-content: center;
