@@ -1,0 +1,39 @@
+/* LibraryList — lesson cards grouped by type with section headers */
+
+.library-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+.library-list__section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.library-list__section-heading {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.2rem;
+  color: var(--color-text);
+  padding-bottom: 0.35rem;
+  border-bottom: 2px solid var(--color-border);
+}
+
+.library-list__section-count {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  background-color: var(--color-border);
+  padding: 0.1rem 0.5rem;
+  border-radius: 999px;
+  margin-left: auto;
+}
+
+.library-list__cards {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}

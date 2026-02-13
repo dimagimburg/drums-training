@@ -83,10 +83,10 @@
 
 ### Implementation for User Story 2
 
-- [ ] T026 [P] [US2] Create LessonCard component in `src/components/LessonCard.tsx` (lesson title, type indicator, difficulty badge, card layout with large tap target — FR-002, FR-039)
-- [ ] T027 [US2] Create LibraryList component in `src/components/LibraryList.tsx` (lessons grouped by type with clear visual distinctions, renders LessonCards — FR-031, FR-039)
-- [ ] T028 [US2] Create Library container component in `src/components/Library.tsx` (loads all lessons, renders LibraryList, shows EmptyState if no lessons — FR-030)
-- [ ] T029 [US2] Wire Library and Lesson detail routes: integrate Library into App.tsx, ensure `/lesson/:id` navigates from both Library and Training, verify back navigation (FR-003, edge case: browser back/forward)
+- [x] T026 [P] [US2] Create LessonCard component in `src/components/LessonCard.tsx` (lesson title, type indicator, difficulty badge, card layout with large tap target — FR-002, FR-039)
+- [x] T027 [US2] Create LibraryList component in `src/components/LibraryList.tsx` (lessons grouped by type with clear visual distinctions, renders LessonCards — FR-031, FR-039)
+- [x] T028 [US2] Create Library container component in `src/components/Library.tsx` (loads all lessons, renders LibraryList, shows EmptyState if no lessons — FR-030)
+- [x] T029 [US2] Wire Library and Lesson detail routes: integrate Library into App.tsx, ensure `/lesson/:id` navigates from both Library and Training, verify back navigation (FR-003, edge case: browser back/forward)
 
 **Checkpoint**: User Stories 1 AND 2 both work independently — Training and Library are complete.
 
