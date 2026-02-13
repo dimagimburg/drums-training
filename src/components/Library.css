@@ -89,6 +89,38 @@
   background-color: rgba(255, 255, 255, 0.25);
 }
 
+/* Search results */
+.library__search-results {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.library__results-count {
+  font-size: 0.9rem;
+  color: var(--color-text-secondary);
+  font-weight: 500;
+}
+
+.library__results-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.library__result-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.library__match-snippet {
+  font-size: 0.8rem;
+  color: var(--color-text-secondary);
+  padding-left: 0.5rem;
+  font-style: italic;
+}
+
 /* Tablet and up */
 @media (min-width: 768px) {
   .library {

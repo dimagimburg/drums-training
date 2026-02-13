@@ -116,9 +116,9 @@
 
 ### Implementation for User Story 3
 
-- [ ] T033 [US3] Implement useSearch hook in `src/hooks/useSearch.ts` (Fuse.js integration with weighted keys: title×2, description×1, links.title×0.5, threshold 0.4, includeMatches for highlighting — per research.md R3, FR-036)
-- [ ] T034 [US3] Create SearchBar component in `src/components/SearchBar.tsx` (search input with clear button, character limit, live/incremental triggering — FR-037, edge case: very long queries)
-- [ ] T035 [US3] Integrate search into Library: connect SearchBar and useSearch to `src/components/Library.tsx`, display results with type indicator and match snippet, show friendly "No lessons found" empty state — FR-037, FR-038
+- [x] T033 [US3] Implement useSearch hook in `src/hooks/useSearch.ts` (Fuse.js integration with weighted keys: title×2, description×1, links.title×0.5, threshold 0.4, includeMatches for highlighting — per research.md R3, FR-036)
+- [x] T034 [US3] Create SearchBar component in `src/components/SearchBar.tsx` (search input with clear button, character limit, live/incremental triggering — FR-037, edge case: very long queries)
+- [x] T035 [US3] Integrate search into Library: connect SearchBar and useSearch to `src/components/Library.tsx`, display results with type indicator and match snippet, show friendly "No lessons found" empty state — FR-037, FR-038
 
 **Checkpoint**: Library now supports fuzzy search — all P1 + P2-search stories work.
 
