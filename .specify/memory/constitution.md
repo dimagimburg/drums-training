@@ -1,50 +1,87 @@
-# [PROJECT_NAME] Constitution
-<!-- Example: Spec Constitution, TaskFlow Constitution, etc. -->
+<!--
+Sync Impact Report
+===================
+Version change: N/A → 1.0.0 (initial ratification)
+Modified principles: N/A (first version)
+Added sections:
+  - Core Principles (3 principles: Simplicity First, Static by Default, Progressive Enhancement)
+  - Project Scope
+  - Development Workflow
+  - Governance
+Removed sections: N/A
+Templates requiring updates:
+  - .specify/templates/plan-template.md ✅ no changes needed (generic)
+  - .specify/templates/spec-template.md ✅ no changes needed (generic)
+  - .specify/templates/tasks-template.md ✅ no changes needed (generic)
+Follow-up TODOs: None
+-->
+
+# Jonathan Drums Constitution
 
 ## Core Principles
 
-### [PRINCIPLE_1_NAME]
-<!-- Example: I. Library-First -->
-[PRINCIPLE_1_DESCRIPTION]
-<!-- Example: Every feature starts as a standalone library; Libraries must be self-contained, independently testable, documented; Clear purpose required - no organizational-only libraries -->
+### I. Simplicity First
 
-### [PRINCIPLE_2_NAME]
-<!-- Example: II. CLI Interface -->
-[PRINCIPLE_2_DESCRIPTION]
-<!-- Example: Every library exposes functionality via CLI; Text in/out protocol: stdin/args → stdout, errors → stderr; Support JSON + human-readable formats -->
+- Every decision MUST favor the simplest viable approach.
+- No abstractions, frameworks, or tooling MUST be introduced unless a concrete,
+  immediate need demands it (YAGNI).
+- If a feature can be achieved with plain HTML, CSS, or vanilla JS, it MUST NOT
+  require a build step or external dependency.
+- Rationale: A small static site with a contained application does not warrant
+  complexity. Keeping things simple makes the project easy to understand, extend,
+  and maintain by anyone.
 
-### [PRINCIPLE_3_NAME]
-<!-- Example: III. Test-First (NON-NEGOTIABLE) -->
-[PRINCIPLE_3_DESCRIPTION]
-<!-- Example: TDD mandatory: Tests written → User approved → Tests fail → Then implement; Red-Green-Refactor cycle strictly enforced -->
+### II. Static by Default
 
-### [PRINCIPLE_4_NAME]
-<!-- Example: IV. Integration Testing -->
-[PRINCIPLE_4_DESCRIPTION]
-<!-- Example: Focus areas requiring integration tests: New library contract tests, Contract changes, Inter-service communication, Shared schemas -->
+- The website MUST be servable as static files with no server-side runtime.
+- Any dynamic or interactive behavior MUST be self-contained within a clearly
+  bounded area of the codebase (the "application" portion).
+- Static content and application code MUST be separated so that changes to one
+  do not unnecessarily affect the other.
+- Rationale: A static-first approach ensures fast load times, trivial hosting,
+  and maximum reliability. Isolating dynamic behavior prevents accidental
+  coupling.
 
-### [PRINCIPLE_5_NAME]
-<!-- Example: V. Observability, VI. Versioning & Breaking Changes, VII. Simplicity -->
-[PRINCIPLE_5_DESCRIPTION]
-<!-- Example: Text I/O ensures debuggability; Structured logging required; Or: MAJOR.MINOR.BUILD format; Or: Start simple, YAGNI principles -->
+### III. Progressive Enhancement
 
-## [SECTION_2_NAME]
-<!-- Example: Additional Constraints, Security Requirements, Performance Standards, etc. -->
+- The site MUST deliver its core content and meaning with HTML alone.
+- Styling and interactivity MUST layer on top without breaking the base
+  experience.
+- The application portion MAY depend on JavaScript, but MUST degrade gracefully
+  or communicate its requirements clearly to the user.
+- Rationale: Building in layers ensures the widest compatibility and a solid
+  foundation to extend later.
 
-[SECTION_2_CONTENT]
-<!-- Example: Technology stack requirements, compliance standards, deployment policies, etc. -->
+## Project Scope
 
-## [SECTION_3_NAME]
-<!-- Example: Development Workflow, Review Process, Quality Gates, etc. -->
+This repository contains a static website for "Jonathan Drums" with a small
+interactive application embedded within it. The technology stack is intentionally
+undecided at this stage. Decisions about frameworks, build tools, or hosting
+will be made when concrete requirements demand them — not before.
 
-[SECTION_3_CONTENT]
-<!-- Example: Code review requirements, testing gates, deployment approval process, etc. -->
+Key constraints:
+
+- The deliverable is a set of static files (HTML, CSS, JS, assets).
+- No server-side processing is assumed or required.
+- The interactive application is small in scope and self-contained.
+
+## Development Workflow
+
+- Changes MUST be committed in small, focused increments.
+- Every change MUST be manually verifiable by opening the site in a browser
+  (no complex build/test pipeline required at this stage).
+- File and folder structure MUST remain flat and obvious until complexity
+  justifies nesting.
 
 ## Governance
-<!-- Example: Constitution supersedes all other practices; Amendments require documentation, approval, migration plan -->
 
-[GOVERNANCE_RULES]
-<!-- Example: All PRs/reviews must verify compliance; Complexity must be justified; Use [GUIDANCE_FILE] for runtime development guidance -->
+- This constitution is the authoritative reference for project decisions.
+- Amendments MUST be documented with a version bump and rationale.
+- Versioning follows semantic versioning:
+  - MAJOR: Principle removed or fundamentally redefined.
+  - MINOR: New principle or section added, or existing one materially expanded.
+  - PATCH: Clarifications, wording fixes, non-semantic refinements.
+- When principles conflict with a practical need, the conflict MUST be
+  documented and justified before proceeding.
 
-**Version**: [CONSTITUTION_VERSION] | **Ratified**: [RATIFICATION_DATE] | **Last Amended**: [LAST_AMENDED_DATE]
-<!-- Example: Version: 2.1.1 | Ratified: 2025-06-13 | Last Amended: 2025-07-16 -->
+**Version**: 1.0.0 | **Ratified**: 2026-02-13 | **Last Amended**: 2026-02-13
