@@ -2,8 +2,8 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0.75rem 1rem;
-  min-height: 60px; /* Fixed height — no layout shift between pages */
+  height: 56px; /* Fixed height — no layout shift between pages */
+  padding: 0 1rem;
   background-color: var(--color-surface);
   border-bottom: 1px solid var(--color-border);
   position: sticky;
@@ -35,11 +35,13 @@
 
 .header__home {
   background: none;
-  font-size: 1.5rem;
-  padding: 0.25rem 0.5rem;
+  font-size: 1.4rem;
+  padding: 0;
   border-radius: 8px;
-  min-height: 48px;
-  min-width: 48px;
+  height: 40px;
+  width: 40px;
+  min-height: unset; /* Override global 48px rule — fits in fixed header */
+  min-width: unset;
   display: flex;
   align-items: center;
   justify-content: center;
