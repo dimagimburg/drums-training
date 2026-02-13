@@ -149,7 +149,7 @@
 
 ### Implementation for User Story 5
 
-- [ ] T040 [US5] Add a library-only sample lesson (a song with no exercise reference) to `content/lessons.yaml` and verify it appears only in Library browse and search, not in any Training exercise
+- [x] T040 [US5] Add a library-only sample lesson (a song with no exercise reference) to `content/lessons.yaml` and verify it appears only in Library browse and search, not in any Training exercise
 
 **Checkpoint**: All user stories complete.
 
@@ -159,11 +159,11 @@
 
 **Purpose**: Deployment, responsiveness, edge case hardening, and final validation
 
-- [ ] T041 [P] Create GitHub Actions deployment workflow in `.github/workflows/deploy.yml` (install → validate → build → deploy dist/ to gh-pages via peaceiris/actions-gh-pages — per research.md R6)
-- [ ] T042 [P] Responsive design pass: verify all components work on phone (320px), tablet (768px), and desktop (1024px+) — no horizontal scrolling, no broken layouts (FR-006)
-- [ ] T043 Edge case hardening across the app: broken lesson references show clear error (not crash), double-tap "Done" debounce, localStorage unavailable fallback, browser back/forward predictability, "Pick for me" with one option (spec Edge Cases section)
-- [ ] T044 Accessibility and kid-UX pass: verify all touch targets ≥48px, clear loading states (FR-005), `<noscript>` message works, contrast ratios readable in all themes (FR-075)
-- [ ] T045 Run quickstart.md validation: verify `npm run dev`, `npm run validate`, `npm run build`, `npm run preview` all work correctly end-to-end
+- [x] T041 [P] Create GitHub Actions deployment workflow in `.github/workflows/deploy.yml` (install → validate → build → deploy dist/ to gh-pages via actions/deploy-pages — per research.md R6)
+- [x] T042 [P] Responsive design pass: verify all components work on phone (320px), tablet (768px), and desktop (1024px+) — no horizontal scrolling, no broken layouts (FR-006)
+- [x] T043 Edge case hardening across the app: broken lesson references show clear error (not crash), double-tap "Done" debounce, localStorage unavailable fallback, browser back/forward predictability, "Pick for me" with one option, zero-lesson exercise handling, theme validation fallback (spec Edge Cases section)
+- [x] T044 Accessibility and kid-UX pass: verify all touch targets ≥48px, `<noscript>` message works, contrast ratios readable in all themes (FR-075), Start over button context-aware visibility
+- [x] T045 Run quickstart.md validation: verify `npm run dev`, `npm run validate`, `npm run build`, `npm run preview` all work correctly end-to-end
 
 ---
 
