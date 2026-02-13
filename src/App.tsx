@@ -4,13 +4,14 @@ import Home from './components/Home';
 import Training from './components/Training';
 import Library from './components/Library';
 import LessonDetail from './components/LessonDetail';
+import ThemeToggle from './components/ThemeToggle';
 import './themes.css';
 import './App.css';
 
 export default function App() {
   return (
     <HashRouter>
-      <Header />
+      <Header themeToggle={<ThemeToggle />} />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/training" element={<Training />} />

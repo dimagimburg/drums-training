@@ -100,9 +100,9 @@
 
 ### Implementation for User Story 6
 
-- [ ] T030 [US6] Implement useTheme hook in `src/hooks/useTheme.ts` (read/write localStorage key `jonathan-drums-theme`, cycle through available themes, fallback to default if invalid/missing — FR-071, FR-074)
-- [ ] T031 [US6] Create ThemeToggle component in `src/components/ThemeToggle.tsx` (theme switcher button with current theme indicator, toggles `data-theme` attribute on `<html>` — FR-072, FR-073)
-- [ ] T032 [US6] Integrate ThemeToggle into Header component in `src/components/Header.tsx` (accessible from every page — FR-072, FR-075)
+- [x] T030 [US6] Implement useTheme hook in `src/hooks/useTheme.ts` (read/write localStorage key `jonathan-drums-theme`, cycle through available themes, fallback to default if invalid/missing — FR-071, FR-074)
+- [x] T031 [US6] Create ThemeToggle component in `src/components/ThemeToggle.tsx` (theme switcher button with current theme indicator, toggles `data-theme` attribute on `<html>` — FR-072, FR-073)
+- [x] T032 [US6] Integrate ThemeToggle into Header component in `src/components/Header.tsx` (accessible from every page — FR-072, FR-075)
 
 **Checkpoint**: All P1 stories complete — Training, Library, and Theme Switching all work.
 
