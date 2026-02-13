@@ -16,11 +16,11 @@ export default function Header({ themeToggle }: HeaderProps) {
       <div className="header__left">
         {!isHome && (
           <button
-            className="header__back"
-            onClick={() => navigate(-1)}
-            aria-label="Go back"
+            className="header__home"
+            onClick={() => navigate('/')}
+            aria-label="Go to home"
           >
-            ← Back
+            🏠
           </button>
         )}
       </div>

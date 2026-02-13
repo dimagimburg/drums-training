@@ -3,6 +3,7 @@
   align-items: center;
   justify-content: space-between;
   padding: 0.75rem 1rem;
+  min-height: 60px; /* Fixed height — no layout shift between pages */
   background-color: var(--color-surface);
   border-bottom: 1px solid var(--color-border);
   position: sticky;
@@ -12,7 +13,7 @@
 
 .header__left,
 .header__right {
-  flex: 0 0 80px;
+  flex: 0 0 60px;
 }
 
 .header__right {
@@ -32,16 +33,18 @@
   white-space: nowrap;
 }
 
-.header__back {
+.header__home {
   background: none;
-  color: var(--color-primary);
-  font-weight: 600;
-  font-size: 1rem;
-  padding: 0.5rem 0.75rem;
+  font-size: 1.5rem;
+  padding: 0.25rem 0.5rem;
   border-radius: 8px;
   min-height: 48px;
+  min-width: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.header__back:hover {
+.header__home:hover {
   background-color: var(--color-primary-light);
 }

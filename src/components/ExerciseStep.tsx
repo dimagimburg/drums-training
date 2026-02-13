@@ -9,6 +9,7 @@ interface ExerciseStepProps {
   stepNumber: number;
   totalSteps: number;
   onComplete: (lessonId: string) => void;
+  onGoBack?: () => void;
   pickRandom: () => Lesson | null;
 }
 
@@ -18,6 +19,7 @@ export default function ExerciseStep({
   stepNumber,
   totalSteps,
   onComplete,
+  onGoBack,
   pickRandom,
 }: ExerciseStepProps) {
   const [selectedLesson, setSelectedLesson] = useState<Lesson | null>(null);
@@ -40,13 +42,37 @@ export default function ExerciseStep({
     onComplete(selectedLesson.id);
   }, [selectedLesson, onComplete]);
 
+  // Shared wizard navigation bar
+  const wizardNav = (
+    <div className="exercise-step__nav">
+      {onGoBack ? (
+        <button className="exercise-step__prev" onClick={onGoBack}>
+          ← Previous
+        </button>
+      ) : (
+        <span />
+      )}
+      <div className="exercise-step__progress">
+        <span className="exercise-step__progress-text">
+          Exercise {stepNumber} of {totalSteps}
+        </span>
+        <div className="exercise-step__progress-bar">
+          <div
+            className="exercise-step__progress-fill"
+            style={{ width: `${(stepNumber / totalSteps) * 100}%` }}
+          />
+        </div>
+      </div>
+      {/* Spacer to balance the layout */}
+      <span />
+    </div>
+  );
+
   // --- View: Lesson selected — show detail + Done button ---
   if (selectedLesson) {
     return (
       <div className="exercise-step">
-        <div className="exercise-step__progress">
-          Exercise {stepNumber} of {totalSteps}
-        </div>
+        {wizardNav}
         <h2 className="exercise-step__title">{exercise.title}</h2>
 
         <LessonDetail lesson={selectedLesson} inline />
@@ -72,9 +98,7 @@ export default function ExerciseStep({
   // --- View: No lesson selected — show lesson picker ---
   return (
     <div className="exercise-step">
-      <div className="exercise-step__progress">
-        Exercise {stepNumber} of {totalSteps}
-      </div>
+      {wizardNav}
       <h2 className="exercise-step__title">{exercise.title}</h2>
       {exercise.description && (
         <p className="exercise-step__description">{exercise.description}</p>

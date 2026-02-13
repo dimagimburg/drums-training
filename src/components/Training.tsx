@@ -12,6 +12,8 @@ export default function Training() {
     currentExercise,
     availableLessons,
     selectLessonAndAdvance,
+    goBack,
+    canGoBack,
     pickRandom,
     reset,
     totalExercises,
@@ -43,6 +45,7 @@ export default function Training() {
         stepNumber={session.currentExerciseIndex + 1}
         totalSteps={totalExercises}
         onComplete={selectLessonAndAdvance}
+        onGoBack={canGoBack ? goBack : undefined}
         pickRandom={pickRandom}
       />
     );

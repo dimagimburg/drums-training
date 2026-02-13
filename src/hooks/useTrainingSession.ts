@@ -41,6 +41,10 @@ export interface UseTrainingSessionReturn {
   availableLessons: Lesson[];
   /** Select a lesson for the current exercise and advance to the next. */
   selectLessonAndAdvance: (lessonId: string) => void;
+  /** Go back to the previous exercise (undo last selection). */
+  goBack: () => void;
+  /** Whether going back is possible (not on first exercise). */
+  canGoBack: boolean;
   /** Pick a random lesson from the available list. Returns the picked lesson. */
   pickRandom: () => Lesson | null;
   /** Reset the session (start over). */
@@ -105,6 +109,29 @@ export function useTrainingSession(
     [currentExercise, exercises.length]
   );
 
+  const canGoBack = session.currentExerciseIndex > 0 && !session.completed;
+
+  const goBack = useCallback(() => {
+    setSession((prev) => {
+      if (prev.currentExerciseIndex <= 0) return prev;
+
+      const prevIndex = prev.currentExerciseIndex - 1;
+      const prevExercise = exercises[prevIndex];
+
+      // Remove the selection for the exercise we're going back to
+      const newSelected = { ...prev.selectedLessons };
+      if (prevExercise) {
+        delete newSelected[prevExercise.id];
+      }
+
+      return {
+        currentExerciseIndex: prevIndex,
+        selectedLessons: newSelected,
+        completed: false,
+      };
+    });
+  }, [exercises]);
+
   const pickRandom = useCallback((): Lesson | null => {
     if (availableLessons.length === 0) return null;
     const idx = Math.floor(Math.random() * availableLessons.length);
@@ -126,6 +153,8 @@ export function useTrainingSession(
     currentExercise,
     availableLessons,
     selectLessonAndAdvance,
+    goBack,
+    canGoBack,
     pickRandom,
     reset,
     totalExercises,
