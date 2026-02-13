@@ -1,0 +1,109 @@
+/* LessonCard — clickable card linking to a lesson detail view.
+   Used in LibraryList. Follows the same card style as exercise-step__lesson-option. */
+
+.lesson-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 1rem 1.25rem;
+  background-color: var(--color-surface);
+  border: 2px solid var(--color-border);
+  border-radius: 14px;
+  text-decoration: none;
+  color: var(--color-text);
+  min-height: 64px;
+  transition: border-color 0.15s ease, background-color 0.15s ease,
+    transform 0.1s ease;
+}
+
+.lesson-card:hover {
+  border-color: var(--color-primary);
+  background-color: var(--color-primary-light);
+  text-decoration: none;
+  transform: translateY(-1px);
+}
+
+.lesson-card:active {
+  transform: scale(0.98);
+}
+
+.lesson-card__icon {
+  font-size: 1.5rem;
+  flex-shrink: 0;
+  line-height: 1;
+  margin-top: 0.15rem;
+}
+
+.lesson-card__body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  min-width: 0; /* allow text truncation */
+}
+
+.lesson-card__title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--color-text);
+  line-height: 1.3;
+}
+
+.lesson-card__description {
+  font-size: 0.9rem;
+  color: var(--color-text-secondary);
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.lesson-card__meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.35rem;
+  flex-shrink: 0;
+}
+
+.lesson-card__type,
+.lesson-card__difficulty {
+  display: inline-block;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: #fff;
+  text-transform: capitalize;
+  white-space: nowrap;
+}
+
+/* Type badge colors — same as LessonDetail */
+.lesson-card__type--song {
+  background-color: var(--color-type-song);
+}
+.lesson-card__type--drum-beat {
+  background-color: var(--color-type-drum-beat);
+}
+.lesson-card__type--fundamental {
+  background-color: var(--color-type-fundamental);
+}
+
+/* Difficulty badge colors — same as LessonDetail */
+.lesson-card__difficulty--beginner {
+  background-color: var(--color-difficulty-beginner);
+}
+.lesson-card__difficulty--intermediate {
+  background-color: var(--color-difficulty-intermediate);
+}
+.lesson-card__difficulty--advanced {
+  background-color: var(--color-difficulty-advanced);
+}
+
+/* Tablet and up — let cards breathe */
+@media (min-width: 768px) {
+  .lesson-card {
+    padding: 1.25rem 1.5rem;
+  }
+}

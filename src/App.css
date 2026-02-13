@@ -1,0 +1,16 @@
+/* App-level layout styles — src/App.css */
+
+/* Ensure main content area fills available space below the header */
+main {
+  flex: 1;
+}
+
+/* Page transition helper — smooth content appearance */
+main > * {
+  animation: fadeIn 0.2s ease-in;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}

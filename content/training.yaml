@@ -1,0 +1,39 @@
+# Jonathan's Drums Training Routine
+# Exercises are presented sequentially. The kid does ALL exercises in order.
+# Each exercise references lessons from lessons.yaml by ID.
+#
+# Fields:
+#   id:          Unique identifier for this exercise
+#   title:       Display title for the exercise
+#   description: Optional instructions for the kid
+#   lessons:     List of lesson IDs the kid can pick from (at least 1 required)
+
+exercises:
+  - id: warmup
+    title: "Warm Up"
+    description: "Start with something familiar to get your hands moving"
+    lessons:
+      - basic-rock-beat
+      - single-stroke-roll
+
+  - id: new-song
+    title: "This Week's Song"
+    description: "Practice the song from your last lesson"
+    lessons:
+      - billie-jean
+      - seven-nation-army
+
+  - id: beat-practice
+    title: "Beat Practice"
+    description: "Pick a beat and play along"
+    lessons:
+      - basic-rock-beat
+      - four-on-the-floor
+
+  - id: cool-down
+    title: "Cool Down"
+    description: "End with something fun and easy"
+    lessons:
+      - billie-jean
+      - basic-rock-beat
+      - single-stroke-roll

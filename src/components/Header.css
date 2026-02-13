@@ -1,0 +1,52 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 60px; /* Fixed height — accommodates 48px touch targets + padding */
+  padding: 0 1rem;
+  background-color: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header__left,
+.header__right {
+  flex: 0 0 60px;
+}
+
+.header__right {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.header__center {
+  flex: 1;
+  text-align: center;
+}
+
+.header__title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  white-space: nowrap;
+}
+
+.header__home {
+  background: none;
+  font-size: 1.4rem;
+  padding: 0;
+  border-radius: 8px;
+  height: 48px;
+  width: 48px;
+  min-height: 48px; /* FR-002: minimum 48px touch target */
+  min-width: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header__home:hover {
+  background-color: var(--color-primary-light);
+}

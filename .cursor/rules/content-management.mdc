@@ -1,0 +1,102 @@
+---
+description: Rules for adding and editing drum lesson content in YAML files
+globs: content/*.yaml
+alwaysApply: false
+---
+
+# Content Management — Jonathan's Drums
+
+You are helping a parent manage drum lesson content for their 8-year-old kid's practice website. Content is defined in two YAML files at the repository root.
+
+## File Locations
+
+- **Lessons**: `content/lessons.yaml` — all library lessons (single source of truth)
+- **Training**: `content/training.yaml` — training routine (exercises referencing lessons)
+
+## Lesson Schema
+
+Each lesson in `content/lessons.yaml` is an array entry with these fields:
+
+| Field | Type | Required | Notes |
+|-------|------|----------|-------|
+| `id` | string | Yes | Unique slug: lowercase, hyphens only (e.g., `billie-jean`). Pattern: `^[a-z0-9]+(-[a-z0-9]+)*$` |
+| `type` | enum | Yes | One of: `song`, `drum-beat`, `fundamental` |
+| `title` | string | Yes | Display title shown to the kid |
+| `description` | string | No | Optional description or instructions |
+| `difficulty` | enum | No | One of: `beginner`, `intermediate`, `advanced` |
+| `youtubeUrl` | string | Conditional | **Required for songs**. Full YouTube URL (`https://www.youtube.com/watch?v=...` or `https://youtu.be/...`) |
+| `links` | array | No | Optional list of `{ title: string, url: string }` objects |
+
+### Lesson type rules
+
+- **song**: Must include `youtubeUrl`. Displayed with embedded YouTube player.
+- **drum-beat**: No `youtubeUrl` needed. Displayed with description and links.
+- **fundamental**: No `youtubeUrl` needed. Displayed with description and links.
+
+### Example lesson entry
+
+```yaml
+- id: seven-nation-army
+  type: song
+  title: "Seven Nation Army"
+  description: "White Stripes iconic drum intro — simple but powerful"
+  difficulty: beginner
+  youtubeUrl: "https://www.youtube.com/watch?v=0J2QdDbelmY"
+  links:
+    - title: "Drum cover tutorial"
+      url: "https://example.com/tutorial"
+```
+
+## Exercise Schema
+
+Exercises in `content/training.yaml` are under an `exercises:` key:
+
+| Field | Type | Required | Notes |
+|-------|------|----------|-------|
+| `id` | string | Yes | Unique slug identifier |
+| `title` | string | Yes | Display title for the exercise |
+| `description` | string | No | Optional instructions for the kid |
+| `lessons` | string[] | Yes | List of lesson IDs from `content/lessons.yaml`. At least 1 required. |
+
+### Example exercise entry
+
+```yaml
+exercises:
+  - id: new-song
+    title: "This Week's Song"
+    description: "Practice the song from your last lesson"
+    lessons:
+      - seven-nation-army
+      - billie-jean
+```
+
+## Validation Rules
+
+After editing, remind the user to run `npm run validate` to check for:
+- YAML syntax errors
+- Missing required fields
+- Invalid field values (bad IDs, unknown types/difficulties)
+- Broken lesson references (exercise references a lesson ID that doesn't exist)
+- Duplicate lesson IDs
+
+## Common Tasks
+
+### Adding a new lesson
+1. Add an entry to the array in `content/lessons.yaml`
+2. Generate a unique slug `id` from the title
+3. Set the correct `type`
+4. Include `youtubeUrl` if it's a song
+5. Optionally add `description`, `difficulty`, and `links`
+
+### Adding a lesson to training
+1. Open `content/training.yaml`
+2. Add the lesson's `id` to the `lessons` list of the appropriate exercise
+
+### Adding a new exercise
+1. Add an entry to the `exercises` list in `content/training.yaml`
+2. Reference at least one existing lesson ID
+
+### Removing a lesson
+1. Remove the entry from `content/lessons.yaml`
+2. Remove all references to its `id` from `content/training.yaml`
+3. Run `npm run validate` to confirm no broken references remain

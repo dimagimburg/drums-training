@@ -1,0 +1,122 @@
+.lesson-detail {
+  padding: 1.5rem 1rem;
+  max-width: 720px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.lesson-detail--inline {
+  padding: 1rem 0;
+}
+
+.lesson-detail__header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.lesson-detail__badges {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.lesson-detail__type,
+.lesson-detail__difficulty {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #fff;
+  text-transform: capitalize;
+}
+
+/* Type badge colors */
+.lesson-detail__type--song {
+  background-color: var(--color-type-song);
+}
+.lesson-detail__type--drum-beat {
+  background-color: var(--color-type-drum-beat);
+}
+.lesson-detail__type--fundamental {
+  background-color: var(--color-type-fundamental);
+}
+
+/* Difficulty badge colors */
+.lesson-detail__difficulty--beginner {
+  background-color: var(--color-difficulty-beginner);
+}
+.lesson-detail__difficulty--intermediate {
+  background-color: var(--color-difficulty-intermediate);
+}
+.lesson-detail__difficulty--advanced {
+  background-color: var(--color-difficulty-advanced);
+}
+
+.lesson-detail__title {
+  font-size: 1.75rem;
+  color: var(--color-text);
+}
+
+.lesson-detail__description {
+  font-size: 1.05rem;
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+}
+
+.lesson-detail__video {
+  margin: 0.5rem 0;
+}
+
+.lesson-detail__links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.lesson-detail__links-heading {
+  font-size: 1.1rem;
+  color: var(--color-text);
+}
+
+.lesson-detail__links-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.lesson-detail__link {
+  display: flex;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  color: var(--color-primary);
+  font-weight: 500;
+  min-height: 48px;
+  transition: background-color 0.15s ease;
+}
+
+.lesson-detail__link:hover {
+  background-color: var(--color-primary-light);
+  text-decoration: none;
+}
+
+.lesson-detail__back {
+  align-self: flex-start;
+  background-color: var(--color-surface);
+  color: var(--color-primary);
+  border: 1px solid var(--color-border);
+  font-weight: 600;
+  padding: 0.75rem 1.25rem;
+  margin-top: 0.5rem;
+}
+
+.lesson-detail__back:hover {
+  background-color: var(--color-primary-light);
+}

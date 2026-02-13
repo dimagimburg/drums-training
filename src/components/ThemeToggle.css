@@ -1,0 +1,28 @@
+/* ThemeToggle — compact button in the Header for cycling themes */
+
+.theme-toggle {
+  background: none;
+  font-size: 1.4rem;
+  padding: 0;
+  border-radius: 8px;
+  height: 48px;
+  width: 48px;
+  min-height: 48px; /* FR-002: minimum 48px touch target */
+  min-width: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.15s ease, transform 0.15s ease;
+}
+
+.theme-toggle:hover {
+  background-color: var(--color-primary-light);
+}
+
+.theme-toggle:active {
+  transform: scale(0.9);
+}
+
+.theme-toggle__icon {
+  line-height: 1;
+}

@@ -1,0 +1,70 @@
+# Jonathan's Drums Library — Lesson Definitions
+# Each lesson is a content item displayed in the Library section.
+# Lessons are referenced by exercises in training.yaml.
+#
+# Supported types: song, drum-beat, fundamental
+# Supported difficulties: beginner, intermediate, advanced (optional)
+#
+# Fields:
+#   id:          Unique slug identifier (lowercase, hyphens only). Used by exercises to reference this lesson.
+#   type:        One of: song, drum-beat, fundamental
+#   title:       Display title shown to the kid
+#   description: Optional description or instructions
+#   difficulty:  Optional. One of: beginner, intermediate, advanced
+#   youtubeUrl:  Required for songs. Full YouTube URL.
+#   links:       Optional list of related links. Each has: title, url
+
+- id: billie-jean
+  type: song
+  title: "Billie Jean"
+  description: "Classic Michael Jackson drum groove — steady hi-hat with a funky kick pattern"
+  difficulty: beginner
+  youtubeUrl: "https://www.youtube.com/watch?v=Zi_XLOBDo_Y"
+  links:
+    - title: "Sheet music"
+      url: "https://example.com/billie-jean-sheet"
+    - title: "Slow practice version"
+      url: "https://example.com/billie-jean-slow"
+
+- id: seven-nation-army
+  type: song
+  title: "Seven Nation Army"
+  description: "White Stripes iconic drum intro — simple but powerful"
+  difficulty: beginner
+  youtubeUrl: "https://www.youtube.com/watch?v=0J2QdDbelmY"
+  links:
+    - title: "Drum cover tutorial"
+      url: "https://example.com/seven-nation-army-tutorial"
+
+- id: basic-rock-beat
+  type: drum-beat
+  title: "Basic Rock Beat"
+  description: "The foundation of rock drumming — kick on 1 and 3, snare on 2 and 4, hi-hat on all eighth notes"
+  difficulty: beginner
+  links:
+    - title: "Tutorial video"
+      url: "https://example.com/basic-rock-tutorial"
+
+- id: four-on-the-floor
+  type: drum-beat
+  title: "Four on the Floor"
+  description: "Kick drum on every beat — used in dance, pop, and disco music"
+  difficulty: beginner
+  links:
+    - title: "Play-along track"
+      url: "https://example.com/four-on-the-floor-track"
+
+- id: single-stroke-roll
+  type: fundamental
+  title: "Single Stroke Roll"
+  description: "Alternating right-left-right-left stick control — the most important rudiment"
+  difficulty: beginner
+
+- id: double-stroke-roll
+  type: fundamental
+  title: "Double Stroke Roll"
+  description: "Two strokes per hand: right-right-left-left — builds wrist control"
+  difficulty: intermediate
+  links:
+    - title: "Practice guide"
+      url: "https://example.com/double-stroke-guide"
