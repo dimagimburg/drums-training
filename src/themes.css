@@ -1,0 +1,64 @@
+/* Theme definitions — CSS custom properties per theme
+   Applied via data-theme attribute on <html>.
+   See research.md R4 for rationale.
+
+   All components reference these variables for colors.
+   To add a new theme: copy a block, change the values,
+   and add the theme name to the array in src/hooks/useTheme.ts
+*/
+
+/* ===== Ocean Theme (default) ===== */
+[data-theme="ocean"] {
+  --color-primary: #1976d2;
+  --color-primary-hover: #1565c0;
+  --color-primary-light: #bbdefb;
+  --color-bg: #e3f2fd;
+  --color-surface: #ffffff;
+  --color-surface-hover: #f5f5f5;
+  --color-text: #212121;
+  --color-text-secondary: #616161;
+  --color-accent: #ff9800;
+  --color-accent-hover: #f57c00;
+  --color-success: #4caf50;
+  --color-error: #e53935;
+  --color-border: #bbdefb;
+  --color-shadow: rgba(25, 118, 210, 0.15);
+
+  /* Type badges */
+  --color-type-song: #e91e63;
+  --color-type-drum-beat: #9c27b0;
+  --color-type-fundamental: #00897b;
+
+  /* Difficulty badges */
+  --color-difficulty-beginner: #4caf50;
+  --color-difficulty-intermediate: #ff9800;
+  --color-difficulty-advanced: #e53935;
+}
+
+/* ===== Sunset Theme ===== */
+[data-theme="sunset"] {
+  --color-primary: #e65100;
+  --color-primary-hover: #bf360c;
+  --color-primary-light: #ffe0b2;
+  --color-bg: #fff3e0;
+  --color-surface: #ffffff;
+  --color-surface-hover: #fff8f0;
+  --color-text: #3e2723;
+  --color-text-secondary: #6d4c41;
+  --color-accent: #ff6f00;
+  --color-accent-hover: #e65100;
+  --color-success: #558b2f;
+  --color-error: #c62828;
+  --color-border: #ffe0b2;
+  --color-shadow: rgba(230, 81, 0, 0.15);
+
+  /* Type badges */
+  --color-type-song: #d81b60;
+  --color-type-drum-beat: #8e24aa;
+  --color-type-fundamental: #00796b;
+
+  /* Difficulty badges */
+  --color-difficulty-beginner: #558b2f;
+  --color-difficulty-intermediate: #ff8f00;
+  --color-difficulty-advanced: #c62828;
+}

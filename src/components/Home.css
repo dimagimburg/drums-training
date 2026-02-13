@@ -1,0 +1,97 @@
+.home {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  padding: 2rem 1rem;
+  text-align: center;
+  gap: 1rem;
+}
+
+.home__title {
+  font-size: 2.5rem;
+  color: var(--color-primary);
+}
+
+.home__subtitle {
+  font-size: 1.25rem;
+  color: var(--color-text-secondary);
+  margin-bottom: 1rem;
+}
+
+.home__nav {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: 100%;
+  max-width: 320px;
+}
+
+.home__button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 2rem 1.5rem;
+  border-radius: 20px;
+  text-decoration: none;
+  color: #fff;
+  font-weight: 700;
+  box-shadow: 0 4px 12px var(--color-shadow);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  /* Large touch target — well above 48px minimum */
+  min-height: 120px;
+}
+
+.home__button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px var(--color-shadow);
+  text-decoration: none;
+}
+
+.home__button:active {
+  transform: scale(0.97);
+}
+
+.home__button--training {
+  background-color: var(--color-primary);
+}
+
+.home__button--training:hover {
+  background-color: var(--color-primary-hover);
+}
+
+.home__button--library {
+  background-color: var(--color-accent);
+}
+
+.home__button--library:hover {
+  background-color: var(--color-accent-hover);
+}
+
+.home__button-icon {
+  font-size: 2.5rem;
+}
+
+.home__button-label {
+  font-size: 1.5rem;
+}
+
+/* Tablet and up — side by side */
+@media (min-width: 768px) {
+  .home__title {
+    font-size: 3rem;
+  }
+
+  .home__nav {
+    flex-direction: row;
+    max-width: 600px;
+  }
+
+  .home__button {
+    flex: 1;
+    min-height: 160px;
+  }
+}

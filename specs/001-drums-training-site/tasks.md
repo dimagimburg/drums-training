@@ -37,17 +37,17 @@
 
 **⚠️ CRITICAL**: No user story work can begin until this phase is complete
 
-- [ ] T006 Create TypeScript interfaces (Lesson, Exercise, TrainingConfig, TrainingSession, ResolvedExercise, MotivationalMessages) in `src/types.ts` per data-model.md
-- [ ] T007 [P] Create sample `content/lessons.yaml` with example lessons covering all 3 types (song, drum-beat, fundamental) per lesson-schema.json
-- [ ] T008 [P] Create sample `content/training.yaml` with 4 exercises referencing sample lessons per training-schema.json
-- [ ] T009 [P] Create `index.html` with root div, `<noscript>` message, and inline theme flash prevention script (reads localStorage, sets `data-theme` before React mounts)
-- [ ] T010 [P] Create global styles in `src/index.css` (CSS reset, responsive base, typography, 48px+ touch targets, mobile-first layout)
-- [ ] T011 [P] Create theme definitions in `src/themes.css` with at least two themes (ocean, sunset) using CSS custom properties on `[data-theme]` selector
-- [ ] T012 Implement data loading module in `src/data/loadContent.ts` (import YAML via vite-plugin-yaml, resolve exercise→lesson references, export typed content, handle broken references with clear errors)
-- [ ] T013 [P] Create Home component in `src/components/Home.tsx` (two large, kid-friendly buttons: Training and Library — FR-001, FR-002)
-- [ ] T014 [P] Create Header component shell in `src/components/Header.tsx` (back button, app title, ThemeToggle placeholder slot — FR-003)
-- [ ] T015 Create root App component with HashRouter in `src/App.tsx` (routes: `/` → Home, `/training` → Training, `/library` → Library, `/lesson/:id` → LessonDetail — per research.md R5)
-- [ ] T016 Create app entry point in `src/main.tsx` (render App into root div) and base app styles in `src/App.css`
+- [x] T006 Create TypeScript interfaces (Lesson, Exercise, TrainingConfig, TrainingSession, ResolvedExercise, MotivationalMessages) in `src/types.ts` per data-model.md
+- [x] T007 [P] Create sample `content/lessons.yaml` with example lessons covering all 3 types (song, drum-beat, fundamental) per lesson-schema.json
+- [x] T008 [P] Create sample `content/training.yaml` with 4 exercises referencing sample lessons per training-schema.json
+- [x] T009 [P] Create `index.html` with root div, `<noscript>` message, and inline theme flash prevention script (reads localStorage, sets `data-theme` before React mounts)
+- [x] T010 [P] Create global styles in `src/index.css` (CSS reset, responsive base, typography, 48px+ touch targets, mobile-first layout)
+- [x] T011 [P] Create theme definitions in `src/themes.css` with at least two themes (ocean, sunset) using CSS custom properties on `[data-theme]` selector
+- [x] T012 Implement data loading module in `src/data/loadContent.ts` (import YAML via vite-plugin-yaml, resolve exercise→lesson references, export typed content, handle broken references with clear errors)
+- [x] T013 [P] Create Home component in `src/components/Home.tsx` (two large, kid-friendly buttons: Training and Library — FR-001, FR-002)
+- [x] T014 [P] Create Header component shell in `src/components/Header.tsx` (back button, app title, ThemeToggle placeholder slot — FR-003)
+- [x] T015 Create root App component with HashRouter in `src/App.tsx` (routes: `/` → Home, `/training` → Training, `/library` → Library, `/lesson/:id` → LessonDetail — per research.md R5)
+- [x] T016 Create app entry point in `src/main.tsx` (render App into root div) and base app styles in `src/App.css`
 
 **Checkpoint**: Foundation ready — project runs with `npm run dev`, shows Home page with two buttons, routing works. User story implementation can now begin.
 
