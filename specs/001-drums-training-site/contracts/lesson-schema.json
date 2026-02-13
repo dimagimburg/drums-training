@@ -1,0 +1,67 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "lesson-schema.json",
+  "title": "Lesson",
+  "description": "Schema for a single lesson in content/lessons.yaml. The lessons file is a YAML array of objects each matching this schema.",
+  "type": "object",
+  "required": ["id", "type", "title"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$",
+      "description": "Unique identifier (lowercase slug). Used by exercises to reference this lesson."
+    },
+    "type": {
+      "type": "string",
+      "enum": ["song", "drum-beat", "fundamental"],
+      "description": "Lesson type. Determines which fields are required and how the lesson is displayed."
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Display title shown to the kid."
+    },
+    "description": {
+      "type": "string",
+      "description": "Optional description or instructions."
+    },
+    "difficulty": {
+      "type": "string",
+      "enum": ["beginner", "intermediate", "advanced"],
+      "description": "Optional difficulty level. Displayed as a visual indicator if present."
+    },
+    "youtubeUrl": {
+      "type": "string",
+      "pattern": "^https?://(www\\.)?(youtube\\.com/watch\\?v=|youtu\\.be/)",
+      "description": "YouTube video URL. Required for song type. Must be a valid YouTube URL."
+    },
+    "links": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["title", "url"],
+        "properties": {
+          "title": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Display title for the link."
+          },
+          "url": {
+            "type": "string",
+            "format": "uri",
+            "description": "Link URL."
+          }
+        },
+        "additionalProperties": false
+      },
+      "description": "Optional list of related links."
+    }
+  },
+  "additionalProperties": false,
+  "if": {
+    "properties": { "type": { "const": "song" } }
+  },
+  "then": {
+    "required": ["id", "type", "title", "youtubeUrl"]
+  }
+}

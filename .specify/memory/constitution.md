@@ -92,7 +92,8 @@ Key constraints:
 - No server-side processing, no database, no external services (except YouTube
   links).
 - All content is managed through YAML configuration files in the repository.
-- A CLI tool provides interactive scaffolding for new content.
+- Content management is done via LLM chat in Cursor, guided by a Cursor rule
+  that knows the YAML schema. No CLI tool is needed.
 - The site serves two sections: Training (interactive exercise flow) and Library
   (searchable lesson reference).
 

@@ -1,0 +1,22 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "messages-schema.json",
+  "title": "Motivational Messages",
+  "description": "Schema for src/data/motivational-messages.json. Contains 100 kid-friendly encouraging messages displayed on training completion.",
+  "type": "object",
+  "required": ["messages"],
+  "properties": {
+    "messages": {
+      "type": "array",
+      "minItems": 100,
+      "maxItems": 100,
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "description": "A single motivational message. Should be kid-friendly, encouraging, and related to drumming or effort."
+      },
+      "description": "Exactly 100 motivational messages. One is selected randomly on training completion."
+    }
+  },
+  "additionalProperties": false
+}

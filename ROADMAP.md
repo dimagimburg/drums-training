@@ -25,7 +25,7 @@ Core features for the initial release:
 - [ ] Theme switching — at least 2 visual themes, kid can toggle, persists in localStorage
 - [ ] Fully responsive design (phone, tablet, desktop)
 - [ ] YAML-based configuration (no database)
-- [ ] CLI tool for scaffolding exercises and library entries
+- [ ] Cursor rule for LLM-assisted content management (replaces CLI tool)
 - [ ] Example content for development and demo
 - [ ] Static deployment on GitHub Pages (free hosting)
 

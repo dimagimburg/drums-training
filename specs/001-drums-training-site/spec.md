@@ -66,7 +66,7 @@ Jonathan remembers part of a lesson name but not exactly. He types a few letters
 
 ### User Story 4 - Parent Updates Training Content (Priority: P2)
 
-Jonathan had a drum lesson with his teacher and learned new material. The parent wants to include it in the training routine. They first add a new lesson to the library (a YAML file or via the CLI tool), then reference that lesson in one of the exercises so Jonathan can pick it during training. This is the typical workflow: teacher teaches → parent adds to library → parent references in exercise.
+Jonathan had a drum lesson with his teacher and learned new material. The parent wants to include it in the training routine. They first add a new lesson to the library (editing the YAML file directly or asking the LLM in Cursor), then reference that lesson in one of the exercises so Jonathan can pick it during training. This is the typical workflow: teacher teaches → parent adds to library → parent references in exercise.
 
 **Why this priority**: The training routine must stay current with what Jonathan is learning. Without easy content management, the site becomes stale after the first week.
 
@@ -76,9 +76,8 @@ Jonathan had a drum lesson with his teacher and learned new material. The parent
 
 1. **Given** the parent creates a new lesson in the library YAML, **When** the site is rebuilt/reloaded, **Then** the lesson appears in the Library and is searchable.
 2. **Given** the parent references an existing library lesson in an exercise's lesson list, **When** Jonathan opens that exercise in training, **Then** the lesson appears as a pickable option.
-3. **Given** the parent runs the CLI tool to add a new lesson, **When** the command completes, **Then** a properly structured YAML entry is created in the library.
-4. **Given** the parent sets `exerciseCount: 3` in the training config, **When** Jonathan starts training, **Then** he sees exactly 3 exercises in the sequence.
-5. **Given** the parent makes a syntax error in the YAML, **When** the site attempts to load, **Then** a clear error message indicates which file and line has the problem (not a blank screen or cryptic error).
+3. **Given** the parent asks the LLM to add a new lesson via chat, **When** the LLM edits the YAML file, **Then** a properly structured entry is created in the library following the schema.
+4. **Given** the parent makes a syntax error in the YAML, **When** the site attempts to load, **Then** a clear error message indicates which file and line has the problem (not a blank screen or cryptic error).
 6. **Given** the parent references a lesson ID that doesn't exist in the library, **When** the site loads, **Then** a clear error message identifies the broken reference.
 
 ---
@@ -142,7 +141,7 @@ Jonathan wants to personalize his experience. He taps a theme button accessible 
 ### Functional Requirements — Training Section
 
 - **FR-010**: The Training section MUST present exercises in a fixed sequential order (Exercise 1 through Exercise N).
-- **FR-011**: The total number of exercises per session MUST be configurable, with a default of 4.
+- **FR-011**: The number of exercises in a training session is determined by the number of exercises defined in the training configuration file. No separate count setting is needed.
 - **FR-012**: Each exercise MUST display a title, an optional description, and a list of lessons to choose from. Lessons are references to entries in the library.
 - **FR-013**: Each exercise MUST provide a "Pick for me" button that randomly selects a lesson from the available list for that exercise.
 - **FR-014**: When the kid selects a lesson for an exercise (manually or randomly), that lesson MUST be excluded from subsequent exercises' lesson lists, UNLESS it is the only lesson available in a given exercise's list.
@@ -179,11 +178,10 @@ Jonathan wants to personalize his experience. He taps a theme button accessible 
 
 - **FR-050**: All lessons MUST be defined in local YAML configuration files within the repository (no database). This is the single source of truth for lesson content.
 - **FR-051**: Training exercises MUST be defined in a separate YAML configuration file that references lessons by identifier. An exercise's lesson list is a set of references to library lessons, not inline content.
-- **FR-052**: A command-line tool MUST exist to scaffold new lessons and update exercise configurations interactively.
-- **FR-053**: The CLI tool MUST validate input (including lesson reference integrity) and produce correctly formatted YAML output.
-- **FR-054**: Configuration files MUST include inline comments explaining each field and acceptable values.
-- **FR-055**: The system MUST provide clear, human-readable error messages when configuration files contain invalid data or broken lesson references.
-- **FR-056**: The repository MUST include example content (sample lessons and exercises) for development and demonstration purposes.
+- **FR-052**: A Cursor IDE rule MUST exist that provides the LLM with the content schema, file locations, and validation rules so the parent can add or modify content via natural language chat.
+- **FR-053**: Configuration files MUST include inline comments explaining each field and acceptable values.
+- **FR-054**: The system MUST provide clear, human-readable error messages when configuration files contain invalid data or broken lesson references.
+- **FR-055**: The repository MUST include example content (sample lessons and exercises) for development and demonstration purposes.
 
 ### Functional Requirements — Lesson Attributes
 
@@ -206,7 +204,7 @@ Jonathan wants to personalize his experience. He taps a theme button accessible 
 
 - **SC-001**: An 8-year-old can complete the full training routine (4 exercises) independently without adult help, in under 15 minutes.
 - **SC-002**: An 8-year-old can find a specific lesson in the library by searching in under 30 seconds.
-- **SC-003**: A parent can add a new lesson and reference it in an exercise in under 5 minutes using either configuration files or the CLI tool.
+- **SC-003**: A parent can add a new lesson and reference it in an exercise in under 5 minutes using YAML files directly or by asking the LLM in Cursor.
 - **SC-004**: The site loads and is interactive within 3 seconds on a standard connection.
 - **SC-005**: All interactive elements are usable on phones, tablets, and desktop screens without horizontal scrolling or layout issues.
 - **SC-006**: Fuzzy search returns relevant results for queries with up to 2 character typos.
@@ -217,7 +215,7 @@ Jonathan wants to personalize his experience. He taps a theme button accessible 
 
 ## Assumptions
 
-- The parent is comfortable editing YAML files in a code editor or using a terminal CLI tool. No web-based admin interface is needed for the first version.
+- The parent is comfortable editing YAML files in a code editor or asking the LLM to make content changes via Cursor. No web-based admin interface or CLI tool is needed.
 - Content updates are infrequent (after drum lessons, roughly weekly), so a rebuild/redeploy after editing config files is acceptable.
 - The 100 motivational messages will be generated during development and stored in a dedicated JSON file within the application source.
 - The site will be used by one child; there is no need for user accounts, authentication, or multi-user features.
