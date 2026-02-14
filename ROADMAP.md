@@ -1,7 +1,7 @@
 # Jonathan's Drums — Feature Roadmap
 
 **Created**: 2026-02-13  
-**Last Updated**: 2026-02-13  
+**Last Updated**: 2026-02-14  
 **Status**: Active
 
 ---
@@ -10,6 +10,8 @@
 
 Core features for the initial release:
 
+- [ ] **i18n support** — language selector with full Hebrew translation (super critical)
+- [ ] **RTL layout support** — proper right-to-left rendering for Hebrew and other RTL languages (super critical)
 - [ ] Home screen with Training and Library sections (large, kid-friendly buttons)
 - [ ] Training section: sequential exercise flow with lesson picking and deduplication
 - [ ] Training section: configurable exercise count (default 4)
@@ -50,6 +52,10 @@ Visual badges for milestones: "First Session", "5 Sessions Completed", "7-Day St
 ### S8. Celebration Animations
 
 Confetti, drum-roll sound effects, or fun animations when completing exercises or a full session. Small effort, big emotional impact for a kid.
+
+### S16. Add Lessons from Phone
+
+A mobile-friendly interface for adding new lessons to the library directly from a phone. Enables the parent or teacher to quickly add content on the go without needing a desktop or editing YAML files manually.
 
 ### S11. Shuffle / Random Training Mode
 
