@@ -3,6 +3,8 @@
 Auto-generated from all feature plans. Last updated: 2026-02-13
 
 ## Active Technologies
+- TypeScript 5.9 / React 19 (Vite 7.3) + react 19.2, react-router-dom 7.13, fuse.js 7.1 — no new runtime dependencies added (002-i18n-support)
+- localStorage (browser) — same pattern as existing theme preference (002-i18n-support)
 
 - TypeScript 5.x with React 19 + React, React Router (HashRouter), Vite, Fuse.js, vite-plugin-yaml (001-drums-training-site)
 
@@ -22,6 +24,7 @@ npm test && npm run lint
 TypeScript 5.x with React 19: Follow standard conventions
 
 ## Recent Changes
+- 002-i18n-support: Added TypeScript 5.9 / React 19 (Vite 7.3) + react 19.2, react-router-dom 7.13, fuse.js 7.1 — no new runtime dependencies added
 
 - 001-drums-training-site: Added TypeScript 5.x with React 19 + React, React Router (HashRouter), Vite, Fuse.js, vite-plugin-yaml
 
