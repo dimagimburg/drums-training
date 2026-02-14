@@ -65,22 +65,30 @@ export function useSearch(lessons: Lesson[]) {
 }
 
 /**
- * Build a human-readable match snippet from Fuse.js match data.
- * Returns a short text indicating where the match was found.
+ * Build a match key from Fuse.js match data.
+ * Returns the match type key for translation lookup.
+ * The caller is responsible for translating the result using t().
  */
-export function getMatchSnippet(matches: SearchMatch[]): string | null {
+export function getMatchSnippetKey(matches: SearchMatch[]): 'title' | 'description' | 'link' | null {
   if (matches.length === 0) return null;
 
-  // Prefer title match, then description, then links.title
   const preferred = matches.find((m) => m.key === 'title')
     ?? matches.find((m) => m.key === 'description')
     ?? matches[0]!;
 
-  const label =
-    preferred.key === 'title' ? 'title'
-    : preferred.key === 'description' ? 'description'
-    : preferred.key === 'links.title' ? 'link'
-    : preferred.key;
+  if (preferred.key === 'title') return 'title';
+  if (preferred.key === 'description') return 'description';
+  if (preferred.key === 'links.title') return 'link';
+  return 'title';
+}
 
-  return `Matched in ${label}`;
+/**
+ * Build a human-readable match snippet from Fuse.js match data.
+ * @deprecated Use getMatchSnippetKey() + t() instead for i18n support.
+ */
+export function getMatchSnippet(matches: SearchMatch[]): string | null {
+  const key = getMatchSnippetKey(matches);
+  if (!key) return null;
+  const labels: Record<string, string> = { title: 'Matched in title', description: 'Matched in description', link: 'Matched in link' };
+  return labels[key] ?? null;
 }

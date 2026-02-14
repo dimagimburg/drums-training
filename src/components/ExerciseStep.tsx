@@ -1,5 +1,6 @@
 import { useState, useCallback, useRef } from 'react';
 import type { Lesson, ResolvedExercise } from '../types';
+import { useTranslation } from '../i18n';
 import LessonDetail from './LessonDetail';
 import EmptyState from './EmptyState';
 import './ExerciseStep.css';
@@ -26,7 +27,8 @@ export default function ExerciseStep({
   pickRandom,
 }: ExerciseStepProps) {
   const [selectedLesson, setSelectedLesson] = useState<Lesson | null>(null);
-  const doneRef = useRef(false); // Debounce guard for double-tap
+  const doneRef = useRef(false);
+  const { t } = useTranslation();
 
   const handlePickLesson = useCallback((lesson: Lesson) => {
     setSelectedLesson(lesson);
@@ -47,10 +49,6 @@ export default function ExerciseStep({
 
   const isFirstExercise = stepNumber === 1;
 
-  // "Start over" behaviour depends on context:
-  // - Exercise 1 with a lesson selected → clear selection (back to picker)
-  // - Exercise 2+ → full session reset
-  // - Exercise 1 with no selection → hidden (nothing to reset)
   const handleStartOver = useCallback(() => {
     if (isFirstExercise) {
       setSelectedLesson(null);
@@ -62,19 +60,18 @@ export default function ExerciseStep({
 
   const showStartOver = !isFirstExercise || selectedLesson !== null;
 
-  // Shared wizard navigation bar
   const wizardNav = (
     <div className="exercise-step__nav">
       {onGoBack ? (
         <button className="exercise-step__prev" onClick={onGoBack}>
-          ← Previous
+          {t('exercise.previous')}
         </button>
       ) : (
         <span />
       )}
       <div className="exercise-step__progress">
         <span className="exercise-step__progress-text">
-          Exercise {stepNumber} of {totalSteps}
+          {t('exercise.progress', { current: stepNumber, total: totalSteps })}
         </span>
         <div className="exercise-step__progress-bar">
           <div
@@ -85,7 +82,7 @@ export default function ExerciseStep({
       </div>
       {showStartOver ? (
         <button className="exercise-step__restart" onClick={handleStartOver}>
-          <span aria-hidden="true">↺</span> Start over
+          <span aria-hidden="true">↺</span> {t('exercise.startOver')}
         </button>
       ) : (
         <span />
@@ -93,7 +90,6 @@ export default function ExerciseStep({
     </div>
   );
 
-  // --- View: Lesson selected — show detail + Done button ---
   if (selectedLesson) {
     return (
       <div className="exercise-step">
@@ -110,17 +106,16 @@ export default function ExerciseStep({
               doneRef.current = false;
             }}
           >
-            ← Pick a different lesson
+            {t('exercise.changeLesson')}
           </button>
           <button className="exercise-step__done" onClick={handleDone}>
-            Done! Next exercise →
+            {t('exercise.done')}
           </button>
         </div>
       </div>
     );
   }
 
-  // --- Edge case: no lessons available (all broken refs) ---
   if (availableLessons.length === 0) {
     return (
       <div className="exercise-step">
@@ -128,14 +123,13 @@ export default function ExerciseStep({
         <h2 className="exercise-step__title">{exercise.title}</h2>
         <EmptyState
           icon="⚠️"
-          title="No lessons available"
-          message="This exercise has no valid lessons. Ask your parent to check the training config."
+          title={t('exercise.noLessonsTitle')}
+          message={t('exercise.noLessonsMessage')}
         />
       </div>
     );
   }
 
-  // --- View: No lesson selected — show lesson picker ---
   return (
     <div className="exercise-step">
       {wizardNav}
@@ -145,7 +139,7 @@ export default function ExerciseStep({
       )}
 
       <div className="exercise-step__picker">
-        <h3 className="exercise-step__picker-heading">Pick a lesson:</h3>
+        <h3 className="exercise-step__picker-heading">{t('exercise.pickLesson')}</h3>
 
         <div className="exercise-step__lesson-list">
           {availableLessons.map((lesson) => (
@@ -163,7 +157,7 @@ export default function ExerciseStep({
         </div>
 
         <button className="exercise-step__random" onClick={handlePickRandom}>
-          🎲 Pick for me!
+          {t('exercise.pickForMe')}
         </button>
       </div>
     </div>

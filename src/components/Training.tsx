@@ -1,5 +1,6 @@
 import { getResolvedExercises } from '../data/loadContent';
 import { useTrainingSession } from '../hooks/useTrainingSession';
+import { useTranslation } from '../i18n';
 import ExerciseStep from './ExerciseStep';
 import CompletionScreen from './CompletionScreen';
 import EmptyState from './EmptyState';
@@ -7,6 +8,7 @@ import EmptyState from './EmptyState';
 const exercises = getResolvedExercises();
 
 export default function Training() {
+  const { t } = useTranslation();
   const {
     session,
     currentExercise,
@@ -19,23 +21,20 @@ export default function Training() {
     totalExercises,
   } = useTrainingSession(exercises);
 
-  // Edge case: no exercises configured
   if (exercises.length === 0) {
     return (
       <EmptyState
         icon="📝"
-        title="No exercises set up yet!"
-        message="Ask your parent to add some exercises to get started."
+        title={t('training.emptyTitle')}
+        message={t('training.emptyMessage')}
       />
     );
   }
 
-  // Training complete — show celebration
   if (session.completed) {
     return <CompletionScreen onRestart={reset} />;
   }
 
-  // Active exercise
   if (currentExercise) {
     return (
       <ExerciseStep
@@ -52,12 +51,11 @@ export default function Training() {
     );
   }
 
-  // Fallback (shouldn't happen, but safe)
   return (
     <EmptyState
       icon="🤔"
-      title="Something went wrong"
-      message="Try refreshing the page or starting a new session."
+      title={t('training.errorTitle')}
+      message={t('training.errorMessage')}
     />
   );
 }

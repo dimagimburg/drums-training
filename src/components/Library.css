@@ -117,7 +117,7 @@
 .library__match-snippet {
   font-size: 0.8rem;
   color: var(--color-text-secondary);
-  padding-left: 0.5rem;
+  padding-inline-start: 0.5rem;
   font-style: italic;
 }
 

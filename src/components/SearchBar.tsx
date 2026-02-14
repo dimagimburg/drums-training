@@ -1,4 +1,5 @@
 import { useRef } from 'react';
+import { useTranslation } from '../i18n';
 import { MAX_QUERY_LENGTH } from '../hooks/useSearch';
 import './SearchBar.css';
 
@@ -9,6 +10,7 @@ interface SearchBarProps {
 
 export default function SearchBar({ query, onQueryChange }: SearchBarProps) {
   const inputRef = useRef<HTMLInputElement>(null);
+  const { t } = useTranslation();
 
   return (
     <div className="search-bar">
@@ -17,11 +19,11 @@ export default function SearchBar({ query, onQueryChange }: SearchBarProps) {
         ref={inputRef}
         className="search-bar__input"
         type="search"
-        placeholder="Search lessons…"
+        placeholder={t('search.placeholder')}
         value={query}
         onChange={(e) => onQueryChange(e.target.value)}
         maxLength={MAX_QUERY_LENGTH}
-        aria-label="Search lessons"
+        aria-label={t('search.ariaLabel')}
         autoComplete="off"
       />
       {query.length > 0 && (
@@ -31,7 +33,7 @@ export default function SearchBar({ query, onQueryChange }: SearchBarProps) {
             onQueryChange('');
             inputRef.current?.focus();
           }}
-          aria-label="Clear search"
+          aria-label={t('search.clearAriaLabel')}
         >
           ✕
         </button>

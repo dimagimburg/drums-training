@@ -1,12 +1,12 @@
 import { Link } from 'react-router-dom';
 import type { Lesson } from '../types';
+import { useTranslation } from '../i18n';
 import './LessonCard.css';
 
 interface LessonCardProps {
   lesson: Lesson;
 }
 
-/** Type icon used across the app */
 function typeIcon(type: string): string {
   switch (type) {
     case 'song': return '🎵';
@@ -16,17 +16,17 @@ function typeIcon(type: string): string {
   }
 }
 
-/** Readable type label */
-function typeLabel(type: string): string {
-  switch (type) {
-    case 'song': return 'Song';
-    case 'drum-beat': return 'Drum Beat';
-    case 'fundamental': return 'Fundamental';
-    default: return type;
-  }
-}
-
 export default function LessonCard({ lesson }: LessonCardProps) {
+  const { t } = useTranslation();
+
+  const typeKey = lesson.type === 'song' ? 'lessonType.song'
+    : lesson.type === 'drum-beat' ? 'lessonType.drumBeat'
+    : 'lessonType.fundamental';
+
+  const difficultyKey = lesson.difficulty
+    ? (`difficulty.${lesson.difficulty}` as 'difficulty.beginner' | 'difficulty.intermediate' | 'difficulty.advanced')
+    : null;
+
   return (
     <Link to={`/lesson/${lesson.id}`} className="lesson-card">
       <span className="lesson-card__icon" aria-hidden="true">
@@ -42,11 +42,11 @@ export default function LessonCard({ lesson }: LessonCardProps) {
 
       <div className="lesson-card__meta">
         <span className={`lesson-card__type lesson-card__type--${lesson.type}`}>
-          {typeLabel(lesson.type)}
+          {t(typeKey)}
         </span>
-        {lesson.difficulty && (
+        {difficultyKey && (
           <span className={`lesson-card__difficulty lesson-card__difficulty--${lesson.difficulty}`}>
-            {lesson.difficulty}
+            {t(difficultyKey)}
           </span>
         )}
       </div>

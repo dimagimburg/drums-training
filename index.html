@@ -22,6 +22,25 @@
           document.documentElement.setAttribute('data-theme', DEFAULT);
         }
       })();
+
+      // Prevent flash of wrong language/direction — apply saved language before React mounts
+      (function () {
+        var SUPPORTED = ['en', 'he'];
+        var RTL = ['he'];
+        var DEFAULT = 'en';
+        try {
+          var lang = localStorage.getItem('jonathan-drums-language');
+          if (!lang || SUPPORTED.indexOf(lang) === -1) {
+            var nav = (navigator.language || '').slice(0, 2);
+            lang = SUPPORTED.indexOf(nav) !== -1 ? nav : DEFAULT;
+          }
+          document.documentElement.setAttribute('lang', lang);
+          document.documentElement.setAttribute('dir', RTL.indexOf(lang) !== -1 ? 'rtl' : 'ltr');
+        } catch (e) {
+          document.documentElement.setAttribute('lang', DEFAULT);
+          document.documentElement.setAttribute('dir', 'ltr');
+        }
+      })();
     </script>
   </head>
   <body>

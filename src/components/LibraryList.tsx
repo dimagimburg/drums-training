@@ -1,4 +1,5 @@
 import type { Lesson, LessonType } from '../types';
+import { useTranslation } from '../i18n';
 import LessonCard from './LessonCard';
 import EmptyState from './EmptyState';
 import './LibraryList.css';
@@ -9,20 +10,22 @@ interface LibraryListProps {
   activeFilter: LessonType | 'all';
 }
 
-/** Display order and labels for lesson type groups */
-const TYPE_GROUPS: { type: LessonType; label: string; icon: string }[] = [
-  { type: 'song', label: 'Songs', icon: '🎵' },
-  { type: 'drum-beat', label: 'Drum Beats', icon: '🥁' },
-  { type: 'fundamental', label: 'Fundamentals', icon: '🎯' },
-];
-
 export default function LibraryList({ lessons, activeFilter }: LibraryListProps) {
+  const { t } = useTranslation();
+
+  /** Display order and labels for lesson type groups */
+  const TYPE_GROUPS: { type: LessonType; label: string; icon: string }[] = [
+    { type: 'song', label: t('libraryList.songs'), icon: '🎵' },
+    { type: 'drum-beat', label: t('libraryList.beats'), icon: '🥁' },
+    { type: 'fundamental', label: t('libraryList.fundamentals'), icon: '🎯' },
+  ];
+
   if (lessons.length === 0) {
     return (
       <EmptyState
         icon="📚"
-        title="No lessons yet"
-        message="No lessons found. Ask your parent to add some!"
+        title={t('libraryList.emptyTitle')}
+        message={t('libraryList.emptyMessage')}
       />
     );
   }

@@ -1,3 +1,4 @@
+import { useTranslation } from '../i18n';
 import './YouTubeEmbed.css';
 
 interface YouTubeEmbedProps {
@@ -5,25 +6,15 @@ interface YouTubeEmbedProps {
   title: string;
 }
 
-/**
- * Extract YouTube video ID from various URL formats.
- * Supports: youtube.com/watch?v=ID, youtu.be/ID, youtube.com/embed/ID
- */
 function extractVideoId(url: string): string | null {
   try {
     const parsed = new URL(url);
-
-    // youtube.com/watch?v=ID
     if (parsed.hostname.includes('youtube.com') && parsed.searchParams.has('v')) {
       return parsed.searchParams.get('v');
     }
-
-    // youtu.be/ID
     if (parsed.hostname === 'youtu.be') {
       return parsed.pathname.slice(1) || null;
     }
-
-    // youtube.com/embed/ID
     if (parsed.pathname.startsWith('/embed/')) {
       return parsed.pathname.split('/embed/')[1] || null;
     }
@@ -34,19 +25,19 @@ function extractVideoId(url: string): string | null {
 }
 
 export default function YouTubeEmbed({ url, title }: YouTubeEmbedProps) {
+  const { t } = useTranslation();
   const videoId = extractVideoId(url);
 
   if (!videoId) {
     return (
       <div className="youtube-embed__fallback">
         <a href={url} target="_blank" rel="noopener noreferrer" className="youtube-embed__link">
-          Open video on YouTube
+          {t('youtube.openFallback')}
         </a>
       </div>
     );
   }
 
-  // Use youtube-nocookie.com for privacy (no tracking cookies) — research.md R7
   const embedUrl = `https://www.youtube-nocookie.com/embed/${videoId}`;
 
   return (
@@ -66,7 +57,7 @@ export default function YouTubeEmbed({ url, title }: YouTubeEmbedProps) {
         target="_blank"
         rel="noopener noreferrer"
       >
-        Open on YouTube
+        {t('youtube.openOnYouTube')}
       </a>
     </div>
   );

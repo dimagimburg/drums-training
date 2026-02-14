@@ -16,8 +16,8 @@ Highlights: Home screen, Training flow (sequential exercises, lesson picking, de
 
 ## Critical
 
-- [ ] **i18n support** — language selector with full Hebrew translation
-- [ ] **RTL layout support** — proper right-to-left rendering for Hebrew and other RTL languages
+- [x] **i18n support** — language selector with full Hebrew translation
+- [x] **RTL layout support** — proper right-to-left rendering for Hebrew and other RTL languages
 
 ---
 

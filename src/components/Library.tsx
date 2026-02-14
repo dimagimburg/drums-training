@@ -1,7 +1,8 @@
 import { useState, useMemo } from 'react';
 import type { LessonType } from '../types';
 import { getAllLessons } from '../data/loadContent';
-import { useSearch, getMatchSnippet } from '../hooks/useSearch';
+import { useSearch, getMatchSnippetKey } from '../hooks/useSearch';
+import { useTranslation } from '../i18n';
 import LibraryList from './LibraryList';
 import SearchBar from './SearchBar';
 import LessonCard from './LessonCard';
@@ -10,17 +11,18 @@ import './Library.css';
 
 type FilterOption = LessonType | 'all';
 
-const FILTER_OPTIONS: { value: FilterOption; label: string; icon: string }[] = [
-  { value: 'all', label: 'All', icon: '📚' },
-  { value: 'song', label: 'Songs', icon: '🎵' },
-  { value: 'drum-beat', label: 'Beats', icon: '🥁' },
-  { value: 'fundamental', label: 'Fundamentals', icon: '🎯' },
-];
-
 export default function Library() {
   const allLessons = useMemo(() => getAllLessons(), []);
   const [activeFilter, setActiveFilter] = useState<FilterOption>('all');
   const { query, setQuery, results, isSearching } = useSearch(allLessons);
+  const { t } = useTranslation();
+
+  const FILTER_OPTIONS: { value: FilterOption; label: string; icon: string }[] = [
+    { value: 'all', label: t('library.filterAll'), icon: '📚' },
+    { value: 'song', label: t('library.filterSongs'), icon: '🎵' },
+    { value: 'drum-beat', label: t('library.filterBeats'), icon: '🥁' },
+    { value: 'fundamental', label: t('library.filterFundamentals'), icon: '🎯' },
+  ];
 
   // Apply type filter (for browse mode only)
   const filteredLessons = useMemo(() => {
@@ -34,8 +36,8 @@ export default function Library() {
       <main className="library">
         <EmptyState
           icon="📚"
-          title="Library is empty"
-          message="No lessons set up yet! Ask your parent to add some."
+          title={t('library.emptyTitle')}
+          message={t('library.emptyMessage')}
         />
       </main>
     );
@@ -44,9 +46,9 @@ export default function Library() {
   return (
     <main className="library">
       <div className="library__header">
-        <h1 className="library__title">Library</h1>
+        <h1 className="library__title">{t('library.title')}</h1>
         <p className="library__subtitle">
-          {allLessons.length} lesson{allLessons.length !== 1 ? 's' : ''} to explore
+          {t('library.lessonCount', { count: allLessons.length })}
         </p>
       </div>
 
@@ -59,17 +61,23 @@ export default function Library() {
           {results.length > 0 ? (
             <>
               <p className="library__results-count">
-                {results.length} result{results.length !== 1 ? 's' : ''} for "{query.trim()}"
+                {t('library.searchResultCount', { count: results.length, query: query.trim() })}
               </p>
               <div className="library__results-list">
                 {results.map(({ lesson, matches }) => (
                   <div key={lesson.id} className="library__result-item">
                     <LessonCard lesson={lesson} />
                     {(() => {
-                      const snippet = getMatchSnippet(matches);
-                      return snippet ? (
-                        <span className="library__match-snippet">{snippet}</span>
-                      ) : null;
+                      const matchKey = getMatchSnippetKey(matches);
+                      if (!matchKey) return null;
+                      const translationKey = matchKey === 'title' ? 'search.matchTitle'
+                        : matchKey === 'description' ? 'search.matchDescription'
+                        : 'search.matchLink';
+                      return (
+                        <span className="library__match-snippet">
+                          {t(translationKey)}
+                        </span>
+                      );
                     })()}
                   </div>
                 ))}
@@ -78,15 +86,15 @@ export default function Library() {
           ) : (
             <EmptyState
               icon="🔍"
-              title="No lessons found"
-              message="Try different words or check your spelling!"
+              title={t('library.noResultsTitle')}
+              message={t('library.noResultsMessage')}
             />
           )}
         </div>
       ) : (
         <>
           {/* Type filter tabs — only in browse mode */}
-          <nav className="library__filters" aria-label="Filter by lesson type">
+          <nav className="library__filters" aria-label={t('library.filterAriaLabel')}>
             {FILTER_OPTIONS.map(({ value, label, icon }) => {
               const count =
                 value === 'all'

@@ -1,14 +1,18 @@
 import { useNavigate, useLocation } from 'react-router-dom';
+import { useTranslation } from '../i18n';
 import './Header.css';
 
 interface HeaderProps {
-  /** Optional slot for ThemeToggle — injected in US6 */
+  /** Slot for LanguageSwitcher */
+  languageSwitcher?: React.ReactNode;
+  /** Slot for ThemeToggle */
   themeToggle?: React.ReactNode;
 }
 
-export default function Header({ themeToggle }: HeaderProps) {
+export default function Header({ languageSwitcher, themeToggle }: HeaderProps) {
   const navigate = useNavigate();
   const location = useLocation();
+  const { t } = useTranslation();
   const isHome = location.pathname === '/' || location.pathname === '';
 
   return (
@@ -18,7 +22,7 @@ export default function Header({ themeToggle }: HeaderProps) {
           <button
             className="header__home"
             onClick={() => navigate('/')}
-            aria-label="Go to home"
+            aria-label={t('header.backLabel')}
           >
             🏠
           </button>
@@ -26,10 +30,11 @@ export default function Header({ themeToggle }: HeaderProps) {
       </div>
 
       <div className="header__center">
-        <span className="header__title">🥁 Jonathan's Drums</span>
+        <span className="header__title">{t('header.title')}</span>
       </div>
 
       <div className="header__right">
+        {languageSwitcher}
         {themeToggle}
       </div>
     </header>
