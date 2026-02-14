@@ -14,57 +14,204 @@
 #   youtubeUrl:  Required for songs. Full YouTube URL.
 #   links:       Optional list of related links. Each has: title, url
 
-- id: billie-jean
+# ──────────────────────────────────────────────
+# SONGS
+# ──────────────────────────────────────────────
+
+- id: have-you-ever-seen-the-rain
   type: song
-  title: "Billie Jean"
-  description: "Classic Michael Jackson drum groove — steady hi-hat with a funky kick pattern"
-  difficulty: beginner
-  youtubeUrl: "https://www.youtube.com/watch?v=Zi_XLOBDo_Y"
+  title: "Have You Ever Seen the Rain? — CCR"
+  description: "Classic Creedence Clearwater Revival track — steady groove with a feel-good shuffle"
+  youtubeUrl: "https://www.youtube.com/watch?v=u1V8YRJnr4Q"
   links:
-    - title: "Sheet music"
-      url: "https://example.com/billie-jean-sheet"
-    - title: "Slow practice version"
-      url: "https://example.com/billie-jean-slow"
+    - title: "Drum sheet"
+      url: "https://thedrumninja.com/downloads/have-you-ever-seen-the-rain-creedence-clearwater-revival-drum-transcription.pdf"
 
-- id: seven-nation-army
+- id: back-in-black
   type: song
-  title: "Seven Nation Army"
-  description: "White Stripes iconic drum intro — simple but powerful"
-  difficulty: beginner
-  youtubeUrl: "https://www.youtube.com/watch?v=0J2QdDbelmY"
+  title: "Back in Black — AC/DC"
+  description: "Iconic AC/DC rock anthem — great for practicing crash accents and solid backbeat"
+  youtubeUrl: "https://www.youtube.com/watch?v=pAgnJDJN4VA"
   links:
-    - title: "Drum cover tutorial"
-      url: "https://example.com/seven-nation-army-tutorial"
+    - title: "Drum sheet"
+      url: "https://robertferrell.com/resources/back-in-black.pdf"
+    - title: "Groovescribe — main groove (4 bars)"
+      url: "https://www.mikeslessons.com/groove/?TimeSig=4/4&Div=16&Tempo=80&Measures=4&H=|c-x-x-x-c-x-x-x-|c-x-x-x-c--c--c-|--c--c--c-x-x-x-|c-x-x-x-x-x-x-x-|&S=|----O-------O---|----O-----------|f-----------O---|----O-------O---|&K=|o-----o-o-----o-|o-------o--o--o-|--o--o--o-------|o-------o-------| "
+    - title: "Groovescribe — intro hits"
+      url: "https://www.mikeslessons.com/groove/?TimeSig=4/4&Div=16&Tempo=91&Measures=1&H=|c--c--c---------|&S=|------------f---|&K=|o--o--o---------|"
+    - title: "Groovescribe — fill variation 1"
+      url: "https://www.mikeslessons.com/groove/?TimeSig=4/4&Div=16&Tempo=80&Measures=1&H=|x-x--x--x--x----|&S=|----O--O--O--OOO|&K=|o----o--o--o----|&Stickings=|-------------LRL|"
+    - title: "Groovescribe — verse groove"
+      url: "https://www.mikeslessons.com/groove/?TimeSig=4/4&Div=16&Tempo=80&Measures=1&H=|x-x--x--c--c--c-|&S=|----O--O--O--O--|&K=|o----o--o--o--o-|&Stickings=|-------------LR-|"
+    - title: "Groovescribe — fill variation 2"
+      url: "https://www.mikeslessons.com/groove/?TimeSig=4/4&Div=16&Tempo=80&Measures=1&H=|x-x--x--x--x----|&S=|----O--O--O--OO-|&K=|o----o--o--o----|&Stickings=|-------------LR-|"
 
-- id: basic-rock-beat
+- id: comfortably-numb
+  type: song
+  title: "Comfortably Numb — Pink Floyd"
+  description: "Epic Pink Floyd ballad with a powerful build — focus on dynamics and feel"
+  youtubeUrl: "https://www.youtube.com/watch?v=Bw0JrtOzrYs"
+
+- id: yellow
+  type: song
+  title: "Yellow — Coldplay"
+  description: "Beautiful Coldplay hit — simple beat, great for working on steady tempo and hi-hat control"
+  youtubeUrl: "https://www.youtube.com/watch?v=yKNxeF4KMsY"
+  links:
+    - title: "Drum sheet"
+      url: "https://thedrumninja.com/downloads/yellow-coldplay-drum-transcription.pdf"
+
+- id: forget-you
+  type: song
+  title: "Forget You — CeeLo Green"
+  description: "Fun and funky pop song — great for practicing tom patterns and sticking"
+  youtubeUrl: "https://www.youtube.com/watch?v=fsENefUX4rA"
+  links:
+    - title: "Drum sheet"
+      url: "https://robertferrell.com/resources/forget-you.pdf"
+    - title: "Groovescribe — tom fill (fast)"
+      url: "https://www.mikeslessons.com/groove/?TimeSig=4/4&Div=16&Tempo=104&Measures=1&MetronomeFreq=4&H=|----------------|&S=|O-O-O-O--OOOO---|&K=|----------------|&T1=|--------o-------|&T4=|--------------o-|&Stickings=|--------RLRLR-R-|"
+    - title: "Groovescribe — groove into tom fill"
+      url: "https://www.mikeslessons.com/groove/?TimeSig=4/4&Div=16&Tempo=104&Measures=2&MetronomeFreq=4&H=|x-x-x-x-x-x-x-x-|----------------|&S=|----O--O----O---|---------OOOO---|&K=|o-------o-o-----|----------------|&T1=|----------------|--------o-------|&T4=|----------------|--------------o-|&Stickings=|----------------|--------RLRLR-R-|"
+    - title: "Groovescribe — tom fill (up tempo)"
+      url: "https://www.mikeslessons.com/groove/?TimeSig=4/4&Div=16&Tempo=125&Measures=1&MetronomeFreq=4&H=|----------------|&S=|O-O-O-O--OOOO---|&K=|----------------|&T1=|--------o-------|&T4=|--------------o-|&Stickings=|R-L-R-L-RLRLR-R-|"
+
+- id: boulevard-of-broken-dreams
+  type: song
+  title: "Boulevard of Broken Dreams — Green Day"
+  description: "Classic Green Day track — steady punk-rock groove with driving eighth notes"
+  youtubeUrl: "https://www.youtube.com/watch?v=Ms-c2tIJcfY"
+
+- id: because-we-can
+  type: song
+  title: "Because We Can — Jon Bon Jovi"
+  description: "Energetic Bon Jovi rocker — check the physical notebook for the drum sheet"
+  youtubeUrl: "https://www.youtube.com/watch?v=9hMcGNbTlpM"
+
+- id: highway-to-hell
+  type: song
+  title: "Highway to Hell — AC/DC"
+  description: "One of the greatest rock songs ever — solid backbeat with powerful fills"
+  youtubeUrl: "https://www.youtube.com/watch?v=l482T0yNkeo"
+  links:
+    - title: "Groovescribe — intro pattern"
+      url: "https://www.mikeslessons.com/groove/?TimeSig=4/4&Div=8&Tempo=100&Measures=2&MetronomeFreq=8&H=|cxxxxxxc|--------|&S=|--O---OO|--------|&K=|o---o---|--x-x-x-|&T1=|--------|--------|&T4=|--------|--------|&Stickings=|--------|--------|"
+    - title: "Groovescribe — main groove"
+      url: "https://www.mikeslessons.com/groove/?TimeSig=4/4&Div=8&Tempo=103&Measures=2&MetronomeFreq=8&H=|cxxxxxxx|xxxxc-c-|&S=|--O---O-|--O---O-|&K=|o---o--o|o---o---|&T1=|--------|--------|&T4=|--------|--------|&Stickings=|--------|--------|"
+    - title: "Groovescribe — ending fill"
+      url: "https://www.mikeslessons.com/groove/?TimeSig=4/4&Div=8&Tempo=94&Measures=2&MetronomeFreq=8&H=|c-------|--------|&S=|OOOOOOOO|OOOOOOf-|&K=|o-o-o-o-|o-o-o---|&T1=|--------|--------|&T4=|-ooooooo|oooooo--|&Stickings=|--------|--------|"
+
+# ──────────────────────────────────────────────
+# DRUM BEATS
+# ──────────────────────────────────────────────
+
+- id: bossa-nova
   type: drum-beat
-  title: "Basic Rock Beat"
-  description: "The foundation of rock drumming — kick on 1 and 3, snare on 2 and 4, hi-hat on all eighth notes"
-  difficulty: beginner
+  title: "Bossa Nova"
+  description: "Classic bossa nova groove — cross-stick pattern on the snare with a syncopated kick"
   links:
-    - title: "Tutorial video"
-      url: "https://example.com/basic-rock-tutorial"
+    - title: "Groovescribe — beat pattern"
+      url: "https://www.mikeslessons.com/groove/?TimeSig=4/4&Div=8&Tempo=130&Measures=2&H=|xxxxxxxx|xxxxxxxx|&S=|x--x--x-|--x--x--|&K=|o--oo--o|o--oo--o|&Stickings=|--------|--------|"
+    - title: "YouTube — bossa nova play-along"
+      url: "https://www.youtube.com/watch?v=fhO1JbMZWvc"
 
-- id: four-on-the-floor
+- id: mozambique
   type: drum-beat
-  title: "Four on the Floor"
-  description: "Kick drum on every beat — used in dance, pop, and disco music"
-  difficulty: beginner
+  title: "Mozambique"
+  description: "Afro-Cuban groove — bell pattern on hi-hat with cross-stick and bass drum ostinato"
   links:
-    - title: "Play-along track"
-      url: "https://example.com/four-on-the-floor-track"
+    - title: "Groovescribe — beat pattern"
+      url: "https://www.mikeslessons.com/groove/?TimeSig=4/4&Div=16&Tempo=48&Measures=1&H=|r-r-rr-r-rr-rr--|&S=|---x------------|&K=|o-x-o-x-o-x-o-x-|&T1=|------o-------o-|&T4=|-----------o----|"
+    - title: "YouTube — play-along"
+      url: "https://www.youtube.com/watch?v=E1hGwx-0bn8"
 
-- id: single-stroke-roll
-  type: fundamental
-  title: "Single Stroke Roll"
-  description: "Alternating right-left-right-left stick control — the most important rudiment"
-  difficulty: beginner
+# ──────────────────────────────────────────────
+# FUNDAMENTALS
+# ──────────────────────────────────────────────
 
-- id: double-stroke-roll
+- id: rudiments-paradiddles-flam-drag
   type: fundamental
-  title: "Double Stroke Roll"
-  description: "Two strokes per hand: right-right-left-left — builds wrist control"
-  difficulty: intermediate
+  title: "Paradiddles, Flams & Drags"
+  description: "Paradiddle, para-paradiddle, para-para-paradiddle, flam, drag — open your music notebook and follow the exercises"
+
+- id: stroke-rolls
+  type: fundamental
+  title: "Stroke Rolls — Triplets, 5, 7, 9"
+  description: "Triplets, 5-stroke roll, 7-stroke roll, 9-stroke roll — open your music notebook and follow the exercises"
+
+- id: sixteenth-note-rests
+  type: fundamental
+  title: "16th Note Rest Patterns"
+  description: "Practice all the 16th note rest combinations — open your music notebook and follow the exercises"
+
+- id: groove-practice-1
+  type: fundamental
+  title: "Groove Practice 1"
+  description: "Practice keeping a steady groove — focus on locking in with the click"
   links:
-    - title: "Practice guide"
-      url: "https://example.com/double-stroke-guide"
+    - title: "YouTube — groove practice"
+      url: "https://www.youtube.com/watch?v=_beWBRxDIQs"
+
+- id: groove-practice-2
+  type: fundamental
+  title: "Groove Practice 2"
+  description: "More groove exercises — push your timing and feel"
+  links:
+    - title: "YouTube — groove practice"
+      url: "https://www.youtube.com/watch?v=TkU7jXEjfOE"
+
+- id: basic-rhythms-and-beats
+  type: fundamental
+  title: "Basic Rhythms and Beats"
+  description: "Foundation patterns every drummer needs to know — playlist of essential beats"
+  links:
+    - title: "YouTube — playlist"
+      url: "https://www.youtube.com/watch?v=hsIjKFeE230&list=PLZPeYVOPJaRP4oP-F8DK12fmOMtwmYJlq"
+
+- id: beginner-drum-fills
+  type: fundamental
+  title: "Beginner Drum Fills"
+  description: "Learn your first drum fills — simple patterns to connect sections of a song"
+  links:
+    - title: "YouTube — beginner fills"
+      url: "https://www.youtube.com/watch?v=NNO3cr7z37U&t=5s"
+
+- id: bass-drum-patterns
+  type: fundamental
+  title: "Bass Drum Patterns"
+  description: "Common kick drum patterns — build foot control and independence"
+  links:
+    - title: "YouTube — bass drum patterns"
+      url: "https://www.youtube.com/watch?v=aYeG0t6uGbk"
+
+- id: off-beat-drum-variations
+  type: fundamental
+  title: "Off Beat Drum Variations"
+  description: "Practice playing on the off beats — great for developing independence and feel"
+  links:
+    - title: "YouTube — off beat variations"
+      url: "https://www.youtube.com/watch?v=wXdoP4eVvEw"
+
+- id: notebook-beats-and-fills
+  type: fundamental
+  title: "Drum Beats & Fills from Notebook"
+  description: "Beats and fills from the physical notebook — open your notebook and follow along"
+  links:
+    - title: "Groovescribe — 3-bar groove + fill"
+      url: "https://www.mikeslessons.com/groove/?TimeSig=4/4&Div=8&Tempo=80&Measures=4&MetronomeFreq=8&H=|cxxxxxxx|xxxxxxxx|xxxxxxxx|--------|&S=|--O---O-|--O---O-|--O---O-|--------|&K=|o---oo--|o----o--|o---oo--|--------|&Stickings=|RRRRRRRR|RRRRRRRR|RRRRRRRR|RRRRRRRR|"
+
+- id: more-fills
+  type: fundamental
+  title: "More Fills"
+  description: "Expand your fill vocabulary — intermediate level patterns and transitions"
+  links:
+    - title: "YouTube — more fills"
+      url: "https://www.youtube.com/watch?v=PsVPo7YFkA8"
+
+- id: sixteenth-notes-snare-hihat
+  type: fundamental
+  title: "16th Notes — Snare & Hi-hat"
+  description: "Work on 16th note subdivision between snare and hi-hat — slow tempo for precision"
+  links:
+    - title: "Groovescribe — 16th note pattern"
+      url: "https://www.mikeslessons.com/groove/?TimeSig=4/4&Div=16&Tempo=36&Measures=1&MetronomeFreq=16&H=|xxxx-xxxxxxx-xxx|&S=|----O-------O---|&K=|o-------o-------|&Stickings=|RLRLRLRLRLRLRLRL|"
