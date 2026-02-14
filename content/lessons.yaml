@@ -107,8 +107,8 @@
 
 - id: bossa-nova
   type: drum-beat
-  title: "Bossa Nova"
-  description: "Classic bossa nova groove — cross-stick pattern on the snare with a syncopated kick"
+  title: "בוסה נובה"
+  description: "תרגל את הבוסה נובה קודם עם הקישור הראשון ואז יחד עם השיר"
   links:
     - title: "Groovescribe — beat pattern"
       url: "https://www.mikeslessons.com/groove/?TimeSig=4/4&Div=8&Tempo=130&Measures=2&H=|xxxxxxxx|xxxxxxxx|&S=|x--x--x-|--x--x--|&K=|o--oo--o|o--oo--o|&Stickings=|--------|--------|"
@@ -117,13 +117,15 @@
 
 - id: mozambique
   type: drum-beat
-  title: "Mozambique"
-  description: "Afro-Cuban groove — bell pattern on hi-hat with cross-stick and bass drum ostinato"
+  title: "קצב מוזמביק"
+  description: "תרגל קודם את הקישור הראשון, השתדל להרים קצב על מנת להמשיך לקישורים השניים, בצע את השיר בקישור האחרון, אתה יכול לשחק עם המהירות של השיר"
   links:
     - title: "Groovescribe — beat pattern"
       url: "https://www.mikeslessons.com/groove/?TimeSig=4/4&Div=16&Tempo=48&Measures=1&H=|r-r-rr-r-rr-rr--|&S=|---x------------|&K=|o-x-o-x-o-x-o-x-|&T1=|------o-------o-|&T4=|-----------o----|"
     - title: "YouTube — play-along"
       url: "https://www.youtube.com/watch?v=E1hGwx-0bn8"
+    - title: "Paul Simon - Late in the Evening"
+      url: "https://www.youtube.com/watch?v=ilzvuie7Bks"
 
 # ──────────────────────────────────────────────
 # FUNDAMENTALS
@@ -131,18 +133,18 @@
 
 - id: rudiments-paradiddles-flam-drag
   type: fundamental
-  title: "Paradiddles, Flams & Drags"
-  description: "Paradiddle, para-paradiddle, para-para-paradiddle, flam, drag — open your music notebook and follow the exercises"
+  title: "פרדידל, פרפרדידל, פרפרפרדידל, פלאם, דרג"
+  description: "תרגל מתוך המחברת במשך דקה לכל תרגיל, דקה אחת פרדידל, דקה אחת פרפרדידל, וכו"
 
 - id: stroke-rolls
   type: fundamental
-  title: "Stroke Rolls — Triplets, 5, 7, 9"
-  description: "Triplets, 5-stroke roll, 7-stroke roll, 9-stroke roll — open your music notebook and follow the exercises"
+  title: "שלישונים, 5 סטרוקרול, 7 סטרוקרול, 9 סטרוקרול"
+  description: "תרגל במשך דקה כל אחד מהתרגילים בכותרת"
 
 - id: sixteenth-note-rests
   type: fundamental
-  title: "16th Note Rest Patterns"
-  description: "Practice all the 16th note rest combinations — open your music notebook and follow the exercises"
+  title: "מקצבי חלקי 16"
+  description: "תרגל מקבצבי חלקי 16 מתוך המחברת"
 
 - id: groove-practice-1
   type: fundamental
