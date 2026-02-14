@@ -2,7 +2,7 @@
 
 **Feature Branch**: `002-i18n-support`  
 **Created**: 2026-02-14  
-**Status**: Draft  
+**Status**: Implemented  
 **Input**: User description: "i18n support — language selector with full Hebrew translation, RTL layout support"
 
 ## User Scenarios & Testing
@@ -96,7 +96,7 @@ When the language is set to Hebrew, all existing themes (Ocean, Sunset) render c
 
 ## Assumptions
 
-- **Content is not translated**: Lesson titles, descriptions, link titles, and exercise titles/descriptions from YAML files are authored by the parent in whatever language they choose. The i18n system only translates the UI shell (buttons, labels, headings, system messages). This keeps the content management workflow simple — no dual-language YAML files.
+- **Content is not translated**: Lesson titles, descriptions, link titles, and exercise titles/descriptions from YAML files are authored by the parent in whatever language they choose (typically Hebrew, the kid's primary language). The i18n system only translates the UI shell (buttons, labels, headings, system messages). Content displays as-is regardless of the selected UI language. This keeps the content management workflow simple — no dual-language YAML files.
 - **Two languages only**: The system is designed for English and Hebrew. Adding a third language should be structurally possible but is not a requirement.
 - **RTL is driven by language choice**: RTL is not a standalone toggle — the layout direction is determined automatically by the selected language. Hebrew activates RTL; English activates LTR. If additional RTL languages are added in the future, they would also trigger RTL.
 - **No server-side rendering**: Language detection and switching happen entirely on the client side.

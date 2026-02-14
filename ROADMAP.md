@@ -16,6 +16,9 @@ Highlights: Home screen, Training flow (sequential exercises, lesson picking, de
 
 ## Critical
 
+_No pending critical features._
+
+**Recently completed** (see `specs/002-i18n-support/`):
 - [x] **i18n support** — language selector with full Hebrew translation
 - [x] **RTL layout support** — proper right-to-left rendering for Hebrew and other RTL languages
 

@@ -1,0 +1,15 @@
+---
+description: Checklist for updating project docs after completing a spec implementation
+alwaysApply: true
+---
+
+# Post-Implementation Documentation Checklist
+
+After completing a `/speckit.implement` run (all tasks marked done), update these files before committing:
+
+1. **spec.md** — Change `Status` from `Draft` to `Implemented`
+2. **ROADMAP.md** — Check off completed features; add "Recently completed" note if an entire priority section is done
+3. **spec.md assumptions** — Add or clarify any design decisions made during implementation that weren't in the original spec (e.g., "content stays single-language" or "library X was rejected in favor of Y")
+4. **quickstart.md** — Verify instructions still match the implementation; update if the dev workflow changed
+
+Do NOT skip this step. Prompt the user if you're about to commit without updating these files.
